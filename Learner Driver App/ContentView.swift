@@ -21,7 +21,7 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        DriveDetailsView(item: item)
                     } label: {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }

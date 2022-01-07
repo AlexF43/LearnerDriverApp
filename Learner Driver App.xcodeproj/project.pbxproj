@@ -16,6 +16,7 @@
 		0784778227881E5C007C1D47 /* Learner_Driver_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784778127881E5C007C1D47 /* Learner_Driver_AppTests.swift */; };
 		0784778C27881E5C007C1D47 /* Learner_Driver_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784778B27881E5C007C1D47 /* Learner_Driver_AppUITests.swift */; };
 		0784778E27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784778D27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift */; };
+		0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784779A2788245A007C1D47 /* DriveDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0784778727881E5C007C1D47 /* Learner Driver AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Learner Driver AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784778B27881E5C007C1D47 /* Learner_Driver_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppUITests.swift; sourceTree = "<group>"; };
 		0784778D27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0784779A2788245A007C1D47 /* DriveDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */,
 				0784776D27881E59007C1D47 /* ContentView.swift */,
+				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
 				0784776F27881E5B007C1D47 /* Assets.xcassets */,
 				0784777427881E5B007C1D47 /* Persistence.swift */,
 				0784777627881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld */,
@@ -266,6 +269,7 @@
 				0784777527881E5B007C1D47 /* Persistence.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
+				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,
 				0784777827881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
