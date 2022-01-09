@@ -12,7 +12,7 @@ struct DrivesList: View {
         NavigationView {
             List(drives) { drive in
                 NavigationLink {
-                    DrivesRow(drive: drive)
+                    DriveDetailsView(drive: drive)
                 } label: {
                     DrivesRow(drive: drive)                }
             }
