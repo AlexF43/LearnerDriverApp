@@ -17,6 +17,11 @@
 		0784778C27881E5C007C1D47 /* Learner_Driver_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784778B27881E5C007C1D47 /* Learner_Driver_AppUITests.swift */; };
 		0784778E27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784778D27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift */; };
 		0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784779A2788245A007C1D47 /* DriveDetailsView.swift */; };
+		078477CC2789636C007C1D47 /* sampleDrives.json in Resources */ = {isa = PBXBuildFile; fileRef = 078477CB2789636C007C1D47 /* sampleDrives.json */; };
+		078477CE2789639C007C1D47 /* DrivesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078477CD2789639C007C1D47 /* DrivesList.swift */; };
+		078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078477CF278963BE007C1D47 /* DrivesRow.swift */; };
+		078477D227896C5F007C1D47 /* Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078477D127896C5E007C1D47 /* Drive.swift */; };
+		078477D4278AB965007C1D47 /* DriveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078477D3278AB965007C1D47 /* DriveData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		0784778B27881E5C007C1D47 /* Learner_Driver_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppUITests.swift; sourceTree = "<group>"; };
 		0784778D27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0784779A2788245A007C1D47 /* DriveDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDetailsView.swift; sourceTree = "<group>"; };
+		078477CB2789636C007C1D47 /* sampleDrives.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleDrives.json; sourceTree = "<group>"; };
+		078477CD2789639C007C1D47 /* DrivesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivesList.swift; sourceTree = "<group>"; };
+		078477CF278963BE007C1D47 /* DrivesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivesRow.swift; sourceTree = "<group>"; };
+		078477D127896C5E007C1D47 /* Drive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drive.swift; sourceTree = "<group>"; };
+		078477D3278AB965007C1D47 /* DriveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +111,14 @@
 			isa = PBXGroup;
 			children = (
 				0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */,
-				0784776D27881E59007C1D47 /* ContentView.swift */,
-				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
+				078477C927895DCC007C1D47 /* Views */,
 				0784776F27881E5B007C1D47 /* Assets.xcassets */,
-				0784777427881E5B007C1D47 /* Persistence.swift */,
+				078477D127896C5E007C1D47 /* Drive.swift */,
+				078477D3278AB965007C1D47 /* DriveData.swift */,
+				078477CB2789636C007C1D47 /* sampleDrives.json */,
+				078477CA27895E2E007C1D47 /* Model */,
 				0784777627881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld */,
+				0784777427881E5B007C1D47 /* Persistence.swift */,
 				0784777127881E5B007C1D47 /* Preview Content */,
 			);
 			path = "Learner Driver App";
@@ -134,6 +147,24 @@
 				0784778D27881E5C007C1D47 /* Learner_Driver_AppUITestsLaunchTests.swift */,
 			);
 			path = "Learner Driver AppUITests";
+			sourceTree = "<group>";
+		};
+		078477C927895DCC007C1D47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0784776D27881E59007C1D47 /* ContentView.swift */,
+				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
+				078477CD2789639C007C1D47 /* DrivesList.swift */,
+				078477CF278963BE007C1D47 /* DrivesRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		078477CA27895E2E007C1D47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +273,7 @@
 			files = (
 				0784777327881E5B007C1D47 /* Preview Assets.xcassets in Resources */,
 				0784777027881E5B007C1D47 /* Assets.xcassets in Resources */,
+				078477CC2789636C007C1D47 /* sampleDrives.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,11 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078477CE2789639C007C1D47 /* DrivesList.swift in Sources */,
 				0784777527881E5B007C1D47 /* Persistence.swift in Sources */,
+				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
+				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,
 				0784777827881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld in Sources */,
+				078477D4278AB965007C1D47 /* DriveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

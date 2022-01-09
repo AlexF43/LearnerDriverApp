@@ -8,13 +8,10 @@
 import SwiftUI
 
 @main
-struct Learner_Driver_AppApp: App {
-    let persistenceController = PersistenceController.shared
-
+struct LearnerDriverApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
