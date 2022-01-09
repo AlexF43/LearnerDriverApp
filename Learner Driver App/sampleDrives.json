@@ -1,6 +1,6 @@
 [
     {
-        "driveID": 1001,
+        "id": 1001,
         "vehicle": "Tesla Model 3",
         "supervisor": "Nicolas",
         "startTime": "20000",
@@ -13,8 +13,8 @@
         "isDayTime": true,
     },
     {
-        "driveID": 1002,
-        "vehicle": "Tesla Model 3",
+        "id": 1002,
+        "vehicle": "Volvo XC60",
         "supervisor": "Nicolas",
         "startTime": "20000",
         "endTime": "20015",

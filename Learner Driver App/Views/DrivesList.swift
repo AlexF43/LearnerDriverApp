@@ -9,12 +9,24 @@ import SwiftUI
 
 struct DrivesList: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(drives) { drive in
+                NavigationLink {
+                    DrivesRow(drive: drive)
+                } label: {
+                    DrivesRow(drive: drive)                }
+            }
+            .navigationTitle("Drives")
+        }
     }
 }
 
-struct DrivesList_Previews: PreviewProvider {
+struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
+        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) {deviceName in
         DrivesList()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }

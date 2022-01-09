@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Drive: Hashable, Codable {
-    var driveID: Int
+struct Drive: Hashable, Codable, Identifiable {
+    
+    var id: Int
     var vehicle: String
     var supervisor: String
     var startTime: String
@@ -19,7 +20,9 @@ struct Drive: Hashable, Codable {
     var endLocation: String 
     var driveNotes: String
     var isDayTime: Bool
+//    var time: Int
 }
 
 
+//let time = Drive.startTime.timeIntervalSince(Drive.endTime)
 
