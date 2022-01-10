@@ -20,9 +20,16 @@ struct Drive: Hashable, Codable, Identifiable {
     var endLocation: String 
     var driveNotes: String
     var isDayTime: Bool
+    var Date: String
 //    var time: Int
+    
+    var distance: Int {
+        endOdometer - startOdometer
+    }
+
 }
 
 
-//let time = Drive.startTime.timeIntervalSince(Drive.endTime)
 
+
+//let time = Drive.startTime.timeIntervalSince(Drive.endTime)

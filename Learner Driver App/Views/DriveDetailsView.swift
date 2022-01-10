@@ -17,6 +17,16 @@ struct DriveDetailsView: View {
         ScrollView {
             VStack {
                 HStack {
+                    Text("\(drive.distance) km")
+                        .fontWeight(.bold)
+                    Spacer()
+                    Text( "Drive time")
+                        .fontWeight(.bold)
+                }
+                .font(.title3)
+
+                Spacer()
+                HStack {
                     Text("Vehicle:")
                     Spacer()
                     Text(drive.vehicle)
@@ -26,15 +36,20 @@ struct DriveDetailsView: View {
                     Spacer()
                     Text(drive.supervisor)
                 }
+                HStack {
+                    Text("Supervisor:")
+                    Spacer()
+                    Text( "\(drive.distance)")
+                }
             }
             .padding()
         }
-        .navigationTitle("Drive on")
+        .navigationTitle("Drive on \(drive.Date)")
     }
 }
 
 struct DriveDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DriveDetailsView(drive: drives[0])
+        DriveDetailsView(drive: drives[0]) 
     }
 }
