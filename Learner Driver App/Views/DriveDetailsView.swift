@@ -37,10 +37,36 @@ struct DriveDetailsView: View {
                     Text(drive.supervisor)
                 }
                 HStack {
-                    Text("Supervisor:")
+                    Text("Start Location")
                     Spacer()
-                    Text( "\(drive.distance)")
+                    Text( "\(drive.startLocation)")
                 }
+                HStack {
+                    Text("Final Location")
+                    Spacer()
+                    Text( "\(drive.endLocation)")
+                }
+                HStack {
+                    Text("Start Odometer")
+                    Spacer()
+                    Text( "\(drive.startOdometer)")
+                }
+                HStack {
+                    Text("End Odometer")
+                    Spacer()
+                    Text( "\(drive.endOdometer)")
+                }
+                HStack {
+                    Text("Start Time")
+                    Spacer()
+                    Text( "\(drive.startTime)")
+                }
+                HStack {
+                    Text("End Time")
+                    Spacer()
+                    Text( "\(drive.endTime)")
+                }
+                
             }
             .padding()
         }
@@ -50,6 +76,6 @@ struct DriveDetailsView: View {
 
 struct DriveDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DriveDetailsView(drive: drives[0]) 
+        DriveDetailsView(drive: drives[0])
     }
 }
