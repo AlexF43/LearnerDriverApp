@@ -15,7 +15,7 @@ struct DriveDetailsView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack { 
                 HStack {
                     Text("\(drive.distance) km")
                         .fontWeight(.bold)

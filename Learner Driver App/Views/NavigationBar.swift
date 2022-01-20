@@ -11,12 +11,22 @@ struct NavigationBar: View {
     
     var body: some View {
         HStack {
+                Spacer()
+                .frame(width: 10)
             Image("Acheivements icon")
+                .resizable()
+                .frame(width: 50, height: 50)
+                Spacer()
             Image("MainMenu icon")
+                .resizable()
+                .frame(width: 50, height: 50)
+                Spacer()
             Image("Settings icon")
+                .resizable()
+                .frame(width: 50, height: 50)
+                Spacer()
+                .frame(width: 10)
         }
-
-            Spacer()
     }
 }
 
