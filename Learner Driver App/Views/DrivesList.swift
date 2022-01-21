@@ -14,7 +14,9 @@ struct DrivesList: View {
                 NavigationLink {
                     DriveDetailsView(drive: drive)
                 } label: {
-                    DrivesRow(drive: drive)                }
+                    DrivesRow(drive: drive)
+//                    Text("Drive Row belongs here")
+                }
             }
             .navigationTitle("Drives")
         }

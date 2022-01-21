@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DrivesRow: View {
+    @Environment(\.managedObjectContext) private var viewContext
     var drive: Drive
     
     var body: some View {

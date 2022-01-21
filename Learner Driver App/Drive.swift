@@ -23,10 +23,6 @@ struct Drive: Hashable, Codable, Identifiable {
     var Date: String
 //    var time: Int
     
-    var Time: String {
-        Date()
-    }
-    
     var distance: Int {
         endOdometer - startOdometer
     }
