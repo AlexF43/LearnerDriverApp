@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct HomePage: View {
+    @State var progressValue: Float = 0.0
     
     var body: some View {
         VStack {
-            DriveProgressBars(dayHoursCompleted: 40, nighHoursCompleted: 10, totalHoursCompleted: 50)
+            
             DrivesList()
         }
     }
