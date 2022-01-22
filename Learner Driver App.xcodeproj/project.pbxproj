@@ -25,6 +25,7 @@
 		078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078477D7278D8596007C1D47 /* NavigationBar.swift */; };
 		07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB359227998EDA00B246F1 /* DriveProgressBars.swift */; };
 		07BB3595279AC96600B246F1 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB3594279AC96600B246F1 /* HomePage.swift */; };
+		07C21991279C38F8006A1963 /* AddADriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C21990279C38F8006A1963 /* AddADriveButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		078477D7278D8596007C1D47 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		07BB359227998EDA00B246F1 /* DriveProgressBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveProgressBars.swift; sourceTree = "<group>"; };
 		07BB3594279AC96600B246F1 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		07C21990279C38F8006A1963 /* AddADriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddADriveButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				0784776D27881E59007C1D47 /* ContentView.swift */,
+				07C21990279C38F8006A1963 /* AddADriveButton.swift */,
 				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
 				078477CD2789639C007C1D47 /* DrivesList.swift */,
 				078477CF278963BE007C1D47 /* DrivesRow.swift */,
@@ -309,6 +312,7 @@
 			files = (
 				078477CE2789639C007C1D47 /* DrivesList.swift in Sources */,
 				0784777527881E5B007C1D47 /* Persistence.swift in Sources */,
+				07C21991279C38F8006A1963 /* AddADriveButton.swift in Sources */,
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */,

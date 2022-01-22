@@ -31,7 +31,11 @@ struct DriveProgressBars: View {
                 .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.red)
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
+//                .animation(.easeInOut)
+            
+            Text(String(format: "%.0f %%", min(self.progress, 1.0)*100.0))
+                .font(.largeTitle)
+                .bold()
         }
     }
 }
@@ -42,8 +46,9 @@ struct DriveProgressBars_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DriveProgressBars(progress: 0.2)
-            Spacer()
+//            Spacer()
         }
-        .previewLayout(.fixed(width: 300, height: 70))
+//        .previewLayout(.fixed(width: 300, height: 70))
     }
 }
+

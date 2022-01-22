@@ -10,40 +10,52 @@ import SwiftUI
 struct DrivesList: View {
     var body: some View {
         NavigationView {
-                
-            VStack {
+            VStack (spacing: 0) {
                 
                 ZStack {
-                    Color.yellow
+                    Color.gray
                         .opacity(0.1)
                         .edgesIgnoringSafeArea(.all)
+                        .frame(height: 300)
                 
                     VStack {
-                        DriveProgressBars(progress: calculateProgres(drives: drives)
-//                                          0.3
-                        )
-                            .frame(width: 150.0, height: 150.0)
-                            .padding(40.0)
-                    
+                        DriveProgressBars(progress: calculateProgres(drives: drives))
+                            .frame(width: 200.0, height: 200.0)
+                            .padding(20.0)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            AddADriveButton()
+                                .padding()
+                        }
+                    }
+                }
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
+                ZStack {
+                    Color.gray
+                        .opacity(0.1)
+                        .frame(height: 50)
+                    HStack {
+                        Text("Drives")
+                            .font(.title)
+                            .multilineTextAlignment(.leading)
+                            .padding()
                         Spacer()
                     }
                 }
-                
-                
-                Text("Drives")
-                    .font(.title)
-                    .multilineTextAlignment(.leading)
                 
                 List(drives) { drive in
                     NavigationLink {
                         DriveDetailsView(drive: drive)
                     } label: {
                         DrivesRow(drive: drive)
-    //                    Text("Drive Row belongs here")
                     }
                 
                 }
-                
+                NavigationBar()
             }
         }
     }
@@ -66,5 +78,6 @@ struct LandmarkList_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
+        .navigationBarHidden(true)
     }
 }
