@@ -18,22 +18,27 @@ struct DrivesList: View {
                         .edgesIgnoringSafeArea(.all)
                         .frame(height: 300)
                 
-                    VStack {
+                    HStack {
+                        Spacer()
                         DriveProgressBars(progress: calculateProgres(drives: drives))
                             .frame(width: 200.0, height: 200.0)
-                            .padding(20.0)
+                            .padding(0.0)
                         
-                        HStack {
+                        VStack {
                             Spacer()
+                                .padding(.vertical, 30.0)
                             
                             AddADriveButton()
-                                .padding()
+                                .padding(.horizontal)
+                                .padding(.top, 30)
                         }
+
                     }
                 }
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                
                 ZStack {
                     Color.gray
                         .opacity(0.1)
