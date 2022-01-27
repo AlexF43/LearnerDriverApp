@@ -43,12 +43,14 @@ struct DrivesList: View {
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
                 
+                Divider()
+                
                 ZStack {
                     Color.gray
                         .opacity(0.1)
                         .frame(height: 50)
                     HStack {
-                        Text("Drives")
+                        Text("Your Drives")
                             .font(.title)
                             .multilineTextAlignment(.leading)
                             .padding()
@@ -56,14 +58,29 @@ struct DrivesList: View {
                     }
                 }
                 
-                List(drives) { drive in
-                    NavigationLink {
-                        DriveDetailsView(drive: drive)
-                    } label: {
-                        DrivesRow(drive: drive)
-                    }
+//                List(drives) { drive in
+//                    NavigationLink {
+//                        DriveDetailsView(drive: drive)
+//                    } label: {
+//                        DrivesRow(drive: drive)
+//                    }
+//
+//                }
                 
+                ForEach(drives, id: \.self) { drive in
+                    VStack {
+                        NavigationLink(destination: DriveDetailsView(drive: drive)) {
+                            DrivesRow(drive: drive)
+                        }
+                        
+                    }
+
+                    Divider()
                 }
+                
+                .border(Color.yellow, width: 3)
+                .background(Color.blue)
+                
                 NavigationBar()
             }
         }
