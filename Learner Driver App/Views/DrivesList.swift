@@ -20,7 +20,11 @@ struct DrivesList: View {
                 
                     HStack {
                         Spacer()
-                        DriveProgressBars(progress: calculateProgres(drives: drives))
+                        DriveProgressBars(
+                            totalProgress: calculateTotalProgres(drives: drives),
+                            dayProgress: calculateDayProgres(drives: drives),
+                            nightProgress: calculateNightProgres(drives: drives)
+                        )
                             .frame(width: 200.0, height: 200.0)
                             .padding(0.0)
                         
@@ -65,13 +69,37 @@ struct DrivesList: View {
         }
     }
     
-    func calculateProgres(drives: [Drive]) -> Float {
+    func calculateTotalProgres(drives: [Drive]) -> Float {
         var hoursDriven = 0.0
         for drive in drives {
             hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
         }
         
         let result = Float(hoursDriven / 120)
+        return result;
+    }
+    
+    func calculateDayProgres(drives: [Drive]) -> Float {
+        var hoursDriven = 0.0
+        for drive in drives {
+            if drive.isDayTime {
+                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+            }
+        }
+        
+        let result = Float(hoursDriven / 100)
+        return result;
+    }
+    
+    func calculateNightProgres(drives: [Drive]) -> Float {
+        var hoursDriven = 0.0
+        for drive in drives {
+            if drive.isDayTime == false {
+                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+            }
+        }
+        
+        let result = Float(hoursDriven / 20)
         return result;
     }
 }
