@@ -12,22 +12,46 @@ struct DrivesRow: View {
     var drive: Drive
     
     var body: some View {
-        HStack {
-            if (drive.isDayTime == true) {
-                Image("Daytime")
-                .resizable()
-                .frame(width: 50, height: 50)
+        ZStack{
+            Rectangle()
+                .frame( height: 80)
+                .foregroundColor(Color.gray.opacity(0.2))
+                .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
+            HStack {
+                if (drive.isDayTime == true) {
+                    Image("Daytime")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .padding()
+                }
+                else {
+                    Image("Nighttime")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .padding()
+                }
+                
+                VStack {
+                    Text(drive.vehicle)
+                        .font(.title2)
+                    
+                    Text("Date of drive")
+                }
+                .padding(.vertical, 25)
+                
+                Spacer()
+                
+                
+//                VStack {
+//                    Text(drive.startLocation)
+//
+//                    Text("\(drive.distance) km")
+//                }
+//                .padding()
+                
+
             }
-            else {
-                Image("Nighttime")
-                .resizable()
-                .frame(width: 50, height: 50)
-            }
-            VStack {
-                Text(drive.vehicle)
-            }
-            
-            Spacer()
+            .foregroundColor(Color.black)
         }
     }
 }
@@ -37,7 +61,7 @@ struct DrivesRow_Previews: PreviewProvider {
         Group {
             DrivesRow(drive:  drives[0])
         }
-        .previewLayout(.fixed(width: 300, height: 70))
+        .previewLayout(.fixed(width: 300, height: 80))
     }
 }
 

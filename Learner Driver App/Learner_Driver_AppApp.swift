@@ -11,7 +11,7 @@ import SwiftUI
 struct LearnerDriverApp: App {
     var body: some Scene {
         WindowGroup {
-            HomePage()
+            DrivesList()
         }
     }
 }

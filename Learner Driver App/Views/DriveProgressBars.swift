@@ -24,47 +24,47 @@ struct DriveProgressBars: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 20.0)
-                .opacity(0.3)
-                .foregroundColor(Color.red)
+                .stroke(lineWidth: 29.0)
+                .opacity(1.0)
+                .foregroundColor(Color.black)
             
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(self.totalProgress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.red)
                 .rotationEffect(Angle(degrees: 270.0))
 //                .animation(.easeInOut)
             
             Text(String(format: "%.0f %%", min(self.totalProgress, 1.0)*100.0))
-                .font(.largeTitle)
-                .bold()
+                .font(.title)
+//                .bold()
             ZStack {
                     Circle()
-                        .stroke(lineWidth: 20.0)
-                        .opacity(0.3)
-                        .foregroundColor(Color.green)
+                        .stroke(lineWidth: 26.1)
+                        .opacity(1.0)
+                        .foregroundColor(Color.black)
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(self.dayProgress, 1.0)))
-                    .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                    .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
                     .foregroundColor(Color.green)
                     .rotationEffect(Angle(degrees: 270.0))
     //                .animation(.easeInOut)
                 
                 ZStack {
                         Circle()
-                            .stroke(lineWidth: 20.0)
-                            .opacity(0.3)
-                            .foregroundColor(Color.blue)
+                            .stroke(lineWidth: 26.1)
+                            .opacity(1.0)
+                            .foregroundColor(Color.black)
                     Circle()
                         .trim(from: 0.0, to: CGFloat(min(self.nightProgress, 1.0)))
-                        .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                        .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
                         .foregroundColor(Color.blue)
                         .rotationEffect(Angle(degrees: 270.0))
         //                .animation(.easeInOut)
                 }
-                .padding(20)
+                .padding(26)
             }
-            .padding(20)
+            .padding(26)
         }
     }
 }

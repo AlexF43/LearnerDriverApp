@@ -14,7 +14,7 @@ struct DrivesList: View {
                 VStack (spacing: 0) {
                     
                     ZStack {
-                        Color.gray
+                        Color.white
                             .opacity(0.1)
                             .edgesIgnoringSafeArea(.all)
                             .frame(height: 300)
@@ -47,11 +47,12 @@ struct DrivesList: View {
                     Divider()
                     
                     ZStack {
-                        Color.gray
+                        Color.white
                             .opacity(0.1)
                             .frame(height: 50)
                         HStack {
                             Text("Your Drives")
+                                .underline()
                                 .font(.title)
                                 .multilineTextAlignment(.leading)
                                 .padding()
@@ -65,16 +66,15 @@ struct DrivesList: View {
                            } label: {
                                DrivesRow(drive: drive)
                            }
-                            Divider()
+                           .padding(.horizontal)
 
                         }
 
                         Divider()
-                    
-    //                NavigationBar()
                 }
             }
         }
+        NavigationBar()
     }
     
     func calculateTotalProgres(drives: [Drive]) -> Float {
