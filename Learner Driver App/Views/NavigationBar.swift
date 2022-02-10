@@ -12,7 +12,7 @@ struct NavigationBar: View {
     var body: some View {
         HStack {
                 Spacer()
-                .frame(width: 10)
+                .frame(width: 10, height: 60)
             Image("Acheivements icon")
                 .resizable()
                 .frame(width: 50, height: 50)
@@ -27,6 +27,7 @@ struct NavigationBar: View {
                 Spacer()
                 .frame(width: 10)
         }
+        .background(Color.gray)
     }
 }
 
@@ -35,9 +36,8 @@ struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationBar()
-            Spacer()
         }
-        .previewLayout(.fixed(width: 300, height: 70))
+        .previewLayout(.fixed(width: 300, height: 80))
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DrivesList: View {
+    @State private var showingSheet = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -30,12 +32,18 @@ struct DrivesList: View {
                                 .padding(0.0)
                             
                             VStack {
-                                Spacer()
-                                    .padding(.vertical, 30.0)
                                 
-                                AddADriveButton()
-                                    .padding(.horizontal)
-                                    .padding(.top, 30)
+                            Spacer()
+                                .padding(.vertical, 30.0)
+                            
+                                Button(action: {
+                                    self.showingSheet.toggle()
+                                }) {
+                                    AddADriveButton()
+                                        .padding()
+                                }.sheet(isPresented: $showingSheet) {
+                                    AddADriveScreen()
+                                }
                             }
 
                         }
