@@ -95,6 +95,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		077767D527B49141003EB320 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				078477CD2789639C007C1D47 /* DrivesList.swift */,
+				07F3648327B094A5002C41E6 /* AddADriveScreen.swift */,
+				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		077767D627B491C3003EB320 /* Json and related */ = {
+			isa = PBXGroup;
+			children = (
+				078477D3278AB965007C1D47 /* DriveData.swift */,
+				078477CB2789636C007C1D47 /* sampleDrives.json */,
+			);
+			path = "Json and related";
+			sourceTree = "<group>";
+		};
 		0784775F27881E59007C1D47 = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +138,11 @@
 			isa = PBXGroup;
 			children = (
 				0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */,
-				078477C927895DCC007C1D47 /* Views */,
-				0784776F27881E5B007C1D47 /* Assets.xcassets */,
-				078477D3278AB965007C1D47 /* DriveData.swift */,
-				078477CB2789636C007C1D47 /* sampleDrives.json */,
+				077767D527B49141003EB320 /* Screens */,
+				078477C927895DCC007C1D47 /* Subviews */,
+				077767D627B491C3003EB320 /* Json and related */,
 				078477CA27895E2E007C1D47 /* Model */,
+				0784776F27881E5B007C1D47 /* Assets.xcassets */,
 				0784777627881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld */,
 				0784777427881E5B007C1D47 /* Persistence.swift */,
 				0784777127881E5B007C1D47 /* Preview Content */,
@@ -156,19 +175,16 @@
 			path = "Learner Driver AppUITests";
 			sourceTree = "<group>";
 		};
-		078477C927895DCC007C1D47 /* Views */ = {
+		078477C927895DCC007C1D47 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				0784776D27881E59007C1D47 /* ContentView.swift */,
 				07C21990279C38F8006A1963 /* AddADriveButton.swift */,
-				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
-				07F3648327B094A5002C41E6 /* AddADriveScreen.swift */,
-				078477CD2789639C007C1D47 /* DrivesList.swift */,
 				078477CF278963BE007C1D47 /* DrivesRow.swift */,
 				07BB359227998EDA00B246F1 /* DriveProgressBars.swift */,
 				078477D7278D8596007C1D47 /* NavigationBar.swift */,
 			);
-			path = Views;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		078477CA27895E2E007C1D47 /* Model */ = {
