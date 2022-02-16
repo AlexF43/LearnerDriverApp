@@ -10,6 +10,8 @@ import SwiftUI
 struct DrivesList: View {
     @State private var showingSheet = false
     
+    @EnvironmentObject var drivesContainer: DrivesContainer
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -24,9 +26,9 @@ struct DrivesList: View {
                         HStack {
                             Spacer()
                             DriveProgressBars(
-                                totalProgress: calculateTotalProgres(drives: drives),
-                                dayProgress: calculateDayProgres(drives: drives),
-                                nightProgress: calculateNightProgres(drives: drives)
+                                totalProgress: calculateTotalProgres(drives: drivesContainer.drives),
+                                dayProgress: calculateDayProgres(drives: drivesContainer.drives),
+                                nightProgress: calculateNightProgres(drives: drivesContainer.drives)
                             )
                                 .frame(width: 200.0, height: 200.0)
                                 .padding(0.0)
@@ -68,17 +70,17 @@ struct DrivesList: View {
                         }
                     }
                     
-                        ForEach(drives, id: \.self) { drive in
-                            NavigationLink {
-                               DriveDetailsView(drive: drive)
-                           } label: {
-                               DrivesRow(drive: drive)
-                           }
-                           .padding(.horizontal)
+                    ForEach(drivesContainer.drives, id: \.self) { drive in
+                        NavigationLink {
+                           DriveDetailsView(drive: drive)
+                       } label: {
+                           DrivesRow(drive: drive)
+                       }
+                       .padding(.horizontal)
 
-                        }
+                    }
 
-                        Divider()
+                    Divider()
                 }
             }
         }

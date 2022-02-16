@@ -76,6 +76,6 @@ struct DriveDetailsView: View {
 
 struct DriveDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DriveDetailsView(drive: drives[0])
+        DriveDetailsView(drive: DrivesContainer().drives[0])
     }
 }

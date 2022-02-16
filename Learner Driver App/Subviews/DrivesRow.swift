@@ -59,7 +59,7 @@ struct DrivesRow: View {
 struct DrivesRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DrivesRow(drive:  drives[0])
+            DrivesRow(drive:  DrivesContainer().drives[0])
         }
         .previewLayout(.fixed(width: 300, height: 80))
     }

@@ -10,6 +10,8 @@ import Combine
 
 struct AddADriveScreen: View {
     
+    @EnvironmentObject var drivesContainer: DrivesContainer
+    
     @State private var drive = Drive()
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
@@ -28,11 +30,18 @@ struct AddADriveScreen: View {
 //    var Date: String
 //    var time: Int
 //
-//    var distance: Int {
-//        endOdometer - startOdometer
+//    @State private var $distance: Int = 0 {
+//        drive.endOdometer - drive.startOdometer
 //    }
+//
     var body: some View {
         VStack {
+//            HStack {
+//                Text("\($distance)")
+//
+//                Text("time should go here")
+//            }
+            
             Button("Save", action: save)
             
             TextField("Instructor", text: $drive.supervisor)
@@ -67,8 +76,10 @@ struct AddADriveScreen: View {
         }
     }
     func save() -> Void {
-        print("value of label is " + startOdometerStr)
-//        startOdometerStr = "99999"
+        // TODO - convert the odometer strings into integers
+        // set the drive fields using the integers
+//        drive.endOdometer = Int(from: <#T##Decoder#>)
+        drivesContainer.addDrive(drive: drive)
     }
 }
 

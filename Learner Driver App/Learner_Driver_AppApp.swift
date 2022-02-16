@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LearnerDriverApp: App {
+    @StateObject private var drivesContainer = DrivesContainer()
     var body: some Scene {
         WindowGroup {
             DrivesList()
+                .environmentObject(drivesContainer)
         }
     }
 }
