@@ -23,6 +23,7 @@ class DrivesContainer : ObservableObject {
         let data: Data
         
         let file = getDocumentsDirectory().appendingPathComponent(fileName)
+        print(file)
 
         do {
             data = try Data(contentsOf: file)

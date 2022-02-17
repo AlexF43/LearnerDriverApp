@@ -76,9 +76,8 @@ struct AddADriveScreen: View {
         }
     }
     func save() -> Void {
-        // TODO - convert the odometer strings into integers
-        // set the drive fields using the integers
-//        drive.endOdometer = Int(from: <#T##Decoder#>)
+        drive.startOdometer = Int(startOdometerStr) ?? 0
+        drive.endOdometer = Int(endOdometerStr) ?? 0
         drivesContainer.addDrive(drive: drive)
     }
 }
