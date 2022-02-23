@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077767D827C30DA6003EB320 /* Delete button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077767D727C30DA6003EB320 /* Delete button.swift */; };
 		0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */; };
 		0784776E27881E59007C1D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776D27881E59007C1D47 /* ContentView.swift */; };
 		0784777027881E5B007C1D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0784776F27881E5B007C1D47 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
 		0784776D27881E59007C1D47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				0784776D27881E59007C1D47 /* ContentView.swift */,
 				07C21990279C38F8006A1963 /* AddADriveButton.swift */,
 				078477CF278963BE007C1D47 /* DrivesRow.swift */,
+				077767D727C30DA6003EB320 /* Delete button.swift */,
 				07BB359227998EDA00B246F1 /* DriveProgressBars.swift */,
 				078477D7278D8596007C1D47 /* NavigationBar.swift */,
 			);
@@ -333,6 +336,7 @@
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */,
+				077767D827C30DA6003EB320 /* Delete button.swift in Sources */,
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,

@@ -41,6 +41,9 @@ struct DrivesRow: View {
                 
                 Spacer()
                 
+//                Delete_button()
+//                    .padding()
+                
                 
 //                VStack {
 //                    Text(drive.startLocation)
@@ -53,6 +56,17 @@ struct DrivesRow: View {
             }
             .foregroundColor(Color.black)
         }
+        .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
+                    .onEnded { value in
+                        let horizontalAmount = value.translation.width as CGFloat
+                        let verticalAmount = value.translation.height as CGFloat
+                        
+                        if abs(horizontalAmount) > abs(verticalAmount) {
+                            print(horizontalAmount < 10 ? "left swipe" : "right swipe")
+                        } else {
+                            print(verticalAmount < 10 ? "up swipe" : "down swipe")
+                        }
+                    })
     }
 }
 

@@ -74,6 +74,7 @@ struct AddADriveScreen: View {
             
             TextField("End Time", text: $drive.endTime)
         }
+//        .title("Add a drive")
     }
     func save() -> Void {
         drive.startOdometer = Int(startOdometerStr) ?? 0

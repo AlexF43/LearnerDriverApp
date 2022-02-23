@@ -22,8 +22,9 @@ class DrivesContainer : ObservableObject {
     func load(_ filename: String) -> [Drive] {
         let data: Data
         
-        let file = getDocumentsDirectory().appendingPathComponent(fileName)
-        print(file)
+        var file = getDocumentsDirectory().appendingPathComponent(fileName)
+//        let file = file(.prettyPrinted)
+//        print(file)
 
         do {
             data = try Data(contentsOf: file)
@@ -75,4 +76,6 @@ class DrivesContainer : ObservableObject {
     }
 }
 
-
+func DeleteDrive() {
+    print("wowzers, i was deleted")
+}

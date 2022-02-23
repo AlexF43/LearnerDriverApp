@@ -39,12 +39,13 @@ struct DrivesList: View {
                                 .padding(.vertical, 30.0)
                             
                                 Button(action: {
-                                    self.showingSheet.toggle()
+                                    AddADriveScreen()
+//                                    self.showingSheet.toggle()
                                 }) {
                                     AddADriveButton()
                                         .padding()
-                                }.sheet(isPresented: $showingSheet) {
-                                    AddADriveScreen()
+//                                }.sheet(isPresented: $showingSheet) {
+//                                    AddADriveScreen()
                                 }
                             }
 
