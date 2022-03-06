@@ -10,6 +10,7 @@ import CoreData
 
 struct DriveDetailsView: View {
     
+    @EnvironmentObject var drivesContainer: DrivesContainer
     @Environment(\.managedObjectContext) private var viewContext
     var drive: Drive
     

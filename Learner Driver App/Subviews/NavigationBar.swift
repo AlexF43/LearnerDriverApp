@@ -10,25 +10,42 @@ import SwiftUI
 struct NavigationBar: View {
     
     var body: some View {
-        HStack {
+//        NavigationView {
+            HStack {
                 Spacer()
                 .frame(width: 10, height: 60)
+            
+            NavigationLink {
+               AcheivementsScreen()
+            } label: {
             Image("Acheivements icon")
                 .resizable()
                 .frame(width: 50, height: 50)
                 Spacer()
-            Image("MainMenu icon")
-                .resizable()
-                .frame(width: 50, height: 50)
-                Spacer()
-            Image("Settings icon")
-                .resizable()
-                .frame(width: 50, height: 50)
-                Spacer()
-                .frame(width: 10)
+            }
+            
+            NavigationLink {
+               DrivesList()
+            } label: {
+                Image("MainMenu icon")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    Spacer()
+            }
+            
+            NavigationLink {
+               SettingsScreen()
+            } label: {
+                Image("Settings icon")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    Spacer()
+                    .frame(width: 10)
+            }
         }
         .background(Color.gray)
     }
+//    }
 }
 
 

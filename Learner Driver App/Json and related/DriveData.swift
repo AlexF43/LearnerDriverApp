@@ -74,6 +74,17 @@ class DrivesContainer : ObservableObject {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
+    
+//    func resetDrives() {
+//        let defultData: String = load("sampleDrives.json")
+//        let file = getDocumentsDirectory().appendingPathComponent(fileName)
+//        do {
+//            try defultData.write(to: file, atomically: true, encoding: String.Encoding.utf8)
+//        } catch {
+//            fatalError("Couldn't save revert to test data")
+//        }
+//    }
+    
 }
 
 func DeleteDrive() {

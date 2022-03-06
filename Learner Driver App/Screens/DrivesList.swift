@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DrivesList: View {
-    @State private var showingSheet = false
+    @State var navigated = false
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     
@@ -37,15 +37,16 @@ struct DrivesList: View {
                                 
                             Spacer()
                                 .padding(.vertical, 30.0)
-                            
-                                Button(action: {
-                                    AddADriveScreen()
-//                                    self.showingSheet.toggle()
-                                }) {
-                                    AddADriveButton()
-                                        .padding()
-//                                }.sheet(isPresented: $showingSheet) {
-//                                    AddADriveScreen()
+                        
+//                                NavigationLink("AddCreditCardView", destination: DriveDetailsView(), isActive: $navigated)
+
+                                NavigationLink {
+                                   AddADriveScreen()
+                                    
+                                } label: {
+                                   AddADriveButton()
+                                            .padding()
+                                    
                                 }
                             }
 
