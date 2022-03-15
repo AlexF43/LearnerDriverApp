@@ -10,42 +10,63 @@ import SwiftUI
 struct NavigationBar: View {
     
     var body: some View {
-//        NavigationView {
-            HStack {
-                Spacer()
-                .frame(width: 10, height: 60)
-            
-            NavigationLink {
-               AcheivementsScreen()
-            } label: {
-            Image("Acheivements icon")
-                .resizable()
-                .frame(width: 50, height: 50)
-                Spacer()
-            }
-            
-            NavigationLink {
-               DrivesList()
-            } label: {
-                Image("MainMenu icon")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    Spacer()
-            }
-            
-            NavigationLink {
-               SettingsScreen()
-            } label: {
-                Image("Settings icon")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    Spacer()
-                    .frame(width: 10)
-            }
+        
+        TabView {
+            AcheivementsScreen()
+                .tabItem {
+                    Image("Acheivements icon")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+                .frame(height: 50)
+            Text("Another Tab")
+                .tabItem {
+                    Image(systemName: "2.square.fill")
+                    Text("Second")
+                }
+            Text("The Last Tab")
+                .tabItem {
+                    Image(systemName: "3.square.fill")
+                    Text("Third")
+                }
         }
-        .background(Color.gray)
-    }
+        .frame(height: 50)
+////        NavigationView {
+//            HStack {
+//                Spacer()
+//                .frame(width: 10, height: 60)
+//
+//            NavigationLink {
+//               AcheivementsScreen()
+//            } label: {
+//            Image("Acheivements icon")
+//                .resizable()
+//                .frame(width: 50, height: 50)
+//                Spacer()
+//            }
+//
+//            NavigationLink {
+//               DrivesList()
+//            } label: {
+//                Image("MainMenu icon")
+//                    .resizable()
+//                    .frame(width: 50, height: 50)
+//                    Spacer()
+//            }
+//
+//            NavigationLink {
+//               SettingsScreen()
+//            } label: {
+//                Image("Settings icon")
+//                    .resizable()
+//                    .frame(width: 50, height: 50)
+//                    Spacer()
+//                    .frame(width: 10)
+//            }
+//        }
+//        .background(Color.gray)
 //    }
+    }
 }
 
 

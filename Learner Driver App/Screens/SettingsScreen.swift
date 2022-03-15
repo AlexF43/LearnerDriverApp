@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsScreen: View {
     var body: some View {
-        Text("Settings")
+        NavigationView {
+            ScrollView {
+                        
+                Text("Settings screen")
+            }
+            .navigationBarTitle(Text("Settings"))
+        }
     }
 }
 

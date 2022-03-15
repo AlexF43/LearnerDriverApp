@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct AcheivementsScreen: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView {
+                DriveProgressLines(totalProgress: 0.6, dayProgress: 0.2, nightProgress: 0.7)
+            }
+            .navigationBarTitle(Text("Acheivements"))
+        }
     }
 }
 

@@ -22,9 +22,9 @@ class DrivesContainer : ObservableObject {
     func load(_ filename: String) -> [Drive] {
         let data: Data
         
-        var file = getDocumentsDirectory().appendingPathComponent(fileName)
+        let file = getDocumentsDirectory().appendingPathComponent(fileName)
 //        let file = file(.prettyPrinted)
-//        print(file)
+        print(file)
 
         do {
             data = try Data(contentsOf: file)

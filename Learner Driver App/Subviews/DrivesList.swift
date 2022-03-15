@@ -86,7 +86,8 @@ struct DrivesList: View {
                 }
             }
         }
-        NavigationBar()
+//        NavigationBar()
+//            .frame(height: 40)
     }
     
     func calculateTotalProgres(drives: [Drive]) -> Float {
@@ -119,7 +120,10 @@ struct DrivesList: View {
             }
         }
         
-        let result = Float(hoursDriven / 20)
+        var result = Float(hoursDriven / 20)
+        if result > 1 {
+            result = 1
+        }
         return result;
     }
 }

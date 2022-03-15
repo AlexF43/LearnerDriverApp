@@ -12,7 +12,7 @@ struct LearnerDriverApp: App {
     @StateObject private var drivesContainer = DrivesContainer()
     var body: some Scene {
         WindowGroup {
-            DrivesList()
+            ContentView()
                 .environmentObject(drivesContainer)
         }
     }

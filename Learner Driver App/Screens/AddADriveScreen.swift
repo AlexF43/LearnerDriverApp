@@ -36,8 +36,9 @@ struct AddADriveScreen: View {
 //
     var body: some View {
         VStack {
+            
 //            HStack {
-//                Text("\($distance)")
+//                Text("\($drive.distance)")
 //
 //                Text("time should go here")
 //            }

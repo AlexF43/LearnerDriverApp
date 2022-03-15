@@ -9,6 +9,35 @@ import SwiftUI
 import CoreData
 
 
+struct ContentView: View {
+    @State private var selection = 2
+    
+    var body: some View {
+        
+
+        TabView(selection:$selection) {
+            
+            AcheivementsScreen()
+              .tabItem {
+                  Image(systemName: "questionmark")
+                  Text("Achievements")
+              }
+              .tag(1)
+            DrivesList()
+              .tabItem {
+                  Image(systemName: "car.fill")
+                  Text("Home")
+              }
+              .tag(2)
+            SettingsScreen()
+                .tabItem {
+                  Image(systemName: "gear")
+                  Text("Settings")
+                }
+              .tag(3)
+        }
+    }
+}
 
 //struct ContentView: View {
 //    @Environment(\.managedObjectContext) private var viewContext
