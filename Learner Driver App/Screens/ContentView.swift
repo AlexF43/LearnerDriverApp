@@ -11,6 +11,9 @@ import CoreData
 
 struct ContentView: View {
     @State private var selection = 2
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.lightGray
+    }
     
     var body: some View {
         

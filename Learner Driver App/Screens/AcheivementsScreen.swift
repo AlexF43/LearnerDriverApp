@@ -8,19 +8,70 @@
 import SwiftUI
 
 struct AcheivementsScreen: View {
-    
+    @EnvironmentObject var drivesContainer: DrivesContainer
     var body: some View {
         NavigationView {
             ScrollView {
-                DriveProgressLines(totalProgress: 0.6, dayProgress: 0.2, nightProgress: 0.7)
+                
+                Text("Some pretty cool text")
+                DriveProgressLines(
+                    totalHours: calculateTotalHours(drives: drivesContainer.drives),
+                    dayProgress: calculateDayHours(drives: drivesContainer.drives),
+                    nightProgress: calculateNightHours(drives: drivesContainer.drives),
+                                                       exactTotalHours: 1000)
+                
             }
-            .navigationBarTitle(Text("Acheivements"))
+            .navigationBarTitle(Text("Achievements"))
         }
     }
+        func calculateTotalHours(drives: [Drive]) -> Double {
+            var hoursDriven = 0.0
+            for drive in drives {
+                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+            }
+            
+            let result = Double(hoursDriven)
+            
+            return result;
+        }
+        
+        func calculateDayHours(drives: [Drive]) -> Double {
+            var hoursDriven = 0.0
+            for drive in drives {
+                if drive.isDayTime {
+                    hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+                }
+            }
+            
+            let result = Double(hoursDriven / 100)
+            return result;
+        }
+        
+        func calculateNightHours(drives: [Drive]) -> Double {
+            var hoursDriven = 0.0
+            for drive in drives {
+                if drive.isDayTime == false {
+                    hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+                }
+            }
+            
+            var result = Double(hoursDriven / 20)
+            if result > 1 {
+                result = 1
+            }
+            return result;
+            
+            
+            
+            
+            
+    
 }
-
+    
+}
 struct AcheivementsScreen_Previews: PreviewProvider {
     static var previews: some View {
         AcheivementsScreen()
     }
 }
+
