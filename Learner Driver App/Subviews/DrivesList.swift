@@ -38,8 +38,6 @@ struct DrivesList: View {
                             Spacer()
                                 .padding(.vertical, 30.0)
                         
-//                                NavigationLink("AddCreditCardView", destination: DriveDetailsView(), isActive: $navigated)
-
                                 NavigationLink {
                                    AddADriveScreen()
                                     

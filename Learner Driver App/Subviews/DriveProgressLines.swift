@@ -10,9 +10,12 @@ import SwiftUI
 struct DriveProgressLines: View {
     
     var totalHours: Double
-    var dayProgress: Double
-    var nightProgress: Double
+    var dayHours: Int
+    var nightHours: Int
     let exactTotalHours: Double
+    var totalProgress: Float
+    var nightProgress: Float
+    var dayProgress: Float
     
     var body: some View {
        
@@ -20,12 +23,12 @@ struct DriveProgressLines: View {
         let totalRoundedHours = totalSeconds/3600
         let totalRemainderSeconds = totalSeconds % 3600
         let totalMins = totalRemainderSeconds * 60
-        
+
         
         VStack {
 //            Text(String("total", totalProgress))
             
-            if totalMins == 0{
+            if totalMins == 0 {
                 
                 Text("\(totalRoundedHours) / 120 hours")
                 
@@ -33,6 +36,23 @@ struct DriveProgressLines: View {
                 
                 Text("\(totalRoundedHours) hours and \(totalMins) mins / 120 hours")
             }
+            
+            Rectangle()
+                .trim(from: 0.0, to: CGFloat(min(self.totalProgress, 1.0)))
+                .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(Color.red)
+                .rotationEffect(Angle(degrees: 0.0))
+            
+            Capsule()
+                .frame(width: self.progress(value: self.totalProgress,
+                                            maxValue: 1.0,
+                                            Width: 25.0))
+                .foregroundColor(self.foregroundColor)
+                .animation(.easeIn)
+            
+            Text("\(dayHours) / 100 hours")
+            
+            Text("\(nightHours) / 20 hours")
         }
     }
 }
@@ -46,6 +66,6 @@ struct DriveProgressLines: View {
 
 struct DriveProgressLines_Previews: PreviewProvider {
     static var previews: some View {
-        DriveProgressLines(totalHours: 0.4, dayProgress: 0.3, nightProgress: 0.2, exactTotalHours: 1000)
+        DriveProgressLines(totalHours: 0.4, dayHours: 1, nightHours: 2, exactTotalHours: 1000, totalProgress: 0.1, nightProgress: 0.2, dayProgress: 0.3)
     }
 }
