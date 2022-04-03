@@ -14,6 +14,8 @@ struct AcheivementsScreen: View {
             ScrollView {
                 
                 Text("Some pretty cool text")
+                HStack {
+                    
                 DriveProgressLines(
                     totalHours: calculateTotalHours(drives: drivesContainer.drives),
                     dayHours: calculateDayHours(drives: drivesContainer.drives),
@@ -21,10 +23,9 @@ struct AcheivementsScreen: View {
                     exactTotalHours: 1000,
                     totalProgress: calculateTotalProgres(drives: drivesContainer.drives),
                     nightProgress: calculateNightProgres(drives: drivesContainer.drives),
-                    dayProgress: calculateDayProgres(drives: drivesContainer.drives)
-                )
-                
-                
+                    dayProgress: calculateDayProgres(drives: drivesContainer.drives))
+                .padding()
+                }
             }
             .navigationBarTitle(Text("Achievements"))
         }

@@ -37,18 +37,32 @@ struct DriveProgressLines: View {
                 Text("\(totalRoundedHours) hours and \(totalMins) mins / 120 hours")
             }
             
-            Rectangle()
-                .trim(from: 0.0, to: CGFloat(min(self.totalProgress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.red)
-                .rotationEffect(Angle(degrees: 0.0))
+            Text("\(totalProgress)")
             
-            Capsule()
-                .frame(width: self.progress(value: self.totalProgress,
-                                            maxValue: 1.0,
-                                            Width: 25.0))
-                .foregroundColor(self.foregroundColor)
-                .animation(.easeIn)
+            ZStack(alignment: .leading){
+                RoundedRectangle(cornerRadius: 10)
+                   // .trim(from: 0.01, to: 0.2)
+                    .frame(width: 350*CGFloat(totalProgress), height:20)
+             //   .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(Color.red)
+              .rotationEffect(Angle(degrees: 180))
+              
+                
+                RoundedRectangle(cornerRadius: 10)
+//                    .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin:  .round))
+                    .frame(width: 350, height:20)
+                    .opacity(0.3)
+                    .foregroundColor(Color.black)
+                
+            }
+//                .frame(width: 200, height: 30)
+            
+//            Capsule()
+//                .frame(width: (value: self.totalProgress,
+//                                            maxValue: 1.0,
+//                                            Width: 25.0))
+//                .foregroundColor(.gray)
+//                .animation(.easeIn)
             
             Text("\(dayHours) / 100 hours")
             
