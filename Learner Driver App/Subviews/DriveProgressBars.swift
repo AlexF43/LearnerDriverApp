@@ -7,19 +7,12 @@
 
 import UIKit
 import SwiftUI
-//import CloudKit
 
 struct DriveProgressBars: View {
     var totalProgress: Float
     var dayProgress: Float
     var nightProgress: Float
     
-//    var dayHoursCompleted: Int
-//    var nighHoursCompleted: Int
-//    var totalHoursCompleted: Int
-//    let totalHoursRequired: Int = 120
-//    let dayHoursRequired: Int = 100
-//    let nightHoursRequired: Int = 20
     
     var body: some View {
         ZStack {
@@ -31,7 +24,7 @@ struct DriveProgressBars: View {
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(self.totalProgress, 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.red)
+                .foregroundColor(Color.green)
                 .rotationEffect(Angle(degrees: 270.0))
 //                .animation(.easeInOut)
             
@@ -46,9 +39,9 @@ struct DriveProgressBars: View {
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(self.dayProgress, 1.0)))
                     .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.yellow)
                     .rotationEffect(Angle(degrees: 270.0))
-    //                .animation(.easeInOut)
+//                    .animation(.easeInOut)
                 
                 ZStack {
                         Circle()

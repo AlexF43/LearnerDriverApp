@@ -13,7 +13,7 @@ struct AcheivementsScreen: View {
         NavigationView {
             ScrollView {
                 
-                Text("Some pretty cool text")
+//                Text("Some pretty cool text")
                 HStack {
                     
                 DriveProgressLines(
@@ -33,13 +33,13 @@ struct AcheivementsScreen: View {
     
     //exact hours
     
-    func calculateTotalHours(drives: [Drive]) -> Double {
+    func calculateTotalHours(drives: [Drive]) -> Int {
         var hoursDriven = 0.0
         for drive in drives {
             hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
         }
         
-        let result = Double(hoursDriven)
+        let result = Int(hoursDriven)
         
         return result;
     }
