@@ -10,13 +10,24 @@ import SwiftUI
 struct AddADriveButton: View {
     var body: some View {
         ZStack {
-            Circle()
-                .foregroundColor(Color.gray)
+            
+            Circle().stroke(Color.black, lineWidth: 0.5)
+                .frame(width:50)
+            Circle().fill(Color.gray)
                 .opacity(0.3)
-                .frame(width: 50)
+                .frame(width:50)
+            
+            
+                
+           // Circle()
+             //   .foregroundColor(Color.gray)
+             //   .opacity(0.3)
+             //   .frame(width: 50)
+               
             
             Text("+")
                 .font(.title)
+                .foregroundColor(Color.black)
         }
     }
 }

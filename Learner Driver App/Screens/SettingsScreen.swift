@@ -13,6 +13,7 @@ struct SettingsScreen: View {
             ScrollView {
                         
                 Text("Settings screen")
+                
             }
             .navigationBarTitle(Text("Settings"))
         }

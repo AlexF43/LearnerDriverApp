@@ -12,6 +12,7 @@ struct DrivesList: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     
+    @State private var isPresenting = false
     var body: some View {
         NavigationView {
             ScrollView {
@@ -38,16 +39,44 @@ struct DrivesList: View {
                             Spacer()
                                 .padding(.vertical, 30.0)
                         
-                                NavigationLink {
-                                   AddADriveScreen()
+//                                NavigationLink {
+//                                   AddADriveScreen()
+//
+//                                } label: {
+//                                   AddADriveButton()
+//                                            .padding()
                                     
-                                } label: {
-                                   AddADriveButton()
-                                            .padding()
+//                                }
+                                
+                                Button (action: {
+                                      isPresenting.toggle()
+                                }) {
+                                    AddADriveButton()
+                                         .padding()
+                                }
+                                  .fullScreenCover(isPresented: $isPresenting,
+                                                   onDismiss: didDismiss) {
+                                      
                                     
+                                      
+                                      HStack {
+                                          Text("A full-screen modal view.")
+                                              .font(.title)
+                                          Text("Tap to Dismiss")
+                                      }
+                                      .onTapGesture {
+                                          isPresenting.toggle()
+                                      }
+                                      .frame(height: 50)
+                                      
+                                      .foregroundColor(.white)
+                                      .background(Color.blue)
+                                      .ignoresSafeArea(edges: .all)
+                                            AddADriveScreen()
+                                            
+                                      
                                 }
                             }
-
                         }
                     }
                     .navigationBarTitle("")
@@ -86,6 +115,10 @@ struct DrivesList: View {
         }
 //        NavigationBar()
 //            .frame(height: 40)
+    }
+    
+    func didDismiss() {
+        // Handle the dismissing action.
     }
     
     func calculateTotalProgres(drives: [Drive]) -> Float {

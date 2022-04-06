@@ -18,22 +18,49 @@ struct DriveDetailsView: View {
         ScrollView {
             VStack { 
                 HStack {
+                    ZStack{
+                        Rectangle()
+                                    .fill(Color.gray)
+                                    .opacity(0.3)
+                                    .frame(width:160, height:30)
+                                    .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
                     Text("\(drive.distance) km")
                         .fontWeight(.bold)
+                    }
+                    
+                            
                     Spacer()
+                    ZStack{
+                        Rectangle()
+                                    .fill(Color.gray)
+                                    .opacity(0.3)
+                                    .frame(width:160, height:30)
+                                    .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
                     Text( "Drive time")
-                        .fontWeight(.bold)
+                        .fontWeight(.bold)}
                 }
                 .font(.title3)
 
                 Spacer()
-                HStack {
-                    Text("Vehicle:")
+                ZStack{
+                    Rectangle()
+                                .fill(Color.gray)
+                                .opacity(0.3)
+                                .frame(width:.infinity, height:50)
+                                
+                                .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
+                                
+                    HStack {
+            
+                        Text("Vehicle")
+                            .padding()
                     Spacer()
+                        
                     Text(drive.vehicle)
-                }
+                            .padding()
+                    }}
                 HStack {
-                    Text("Supervisor:")
+                    Text("Supervisor")
                     Spacer()
                     Text(drive.supervisor)
                 }

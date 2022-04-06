@@ -12,7 +12,7 @@ import CoreData
 struct ContentView: View {
     @State private var selection = 2
     init() {
-        UITabBar.appearance().backgroundColor = UIColor.lightGray
+        UITabBar.appearance().backgroundColor = UIColor.white
     }
     
     var body: some View {
