@@ -174,7 +174,7 @@ struct DriveDetailsView: View {
                         .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
                                 
                     HStack {
-                        Text("Start location")
+                        Text("End Time")
                             .padding(13)
                     Spacer()
                         

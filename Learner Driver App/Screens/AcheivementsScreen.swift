@@ -12,9 +12,11 @@ struct AcheivementsScreen: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                VStack{
+                
                 
 //                Text("Some pretty cool text")
-                HStack {
+               // HStack {
                     
                 DriveProgressLines(
                     totalHours: calculateTotalHours(drives: drivesContainer.drives),
@@ -25,12 +27,14 @@ struct AcheivementsScreen: View {
                     nightProgress: calculateNightProgres(drives: drivesContainer.drives),
                     dayProgress: calculateDayProgres(drives: drivesContainer.drives))
                 .padding()
+              //  }
+                .navigationBarTitle(Text("Achievements"))
+            
+                    AchievementCirclesView()
                 }
-            }
-            .navigationBarTitle(Text("Achievements"))
         }
     }
-    
+    }
     //exact hours
     
     func calculateTotalHours(drives: [Drive]) -> Int {

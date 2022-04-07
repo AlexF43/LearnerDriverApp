@@ -18,13 +18,13 @@ struct DriveProgressBars: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 29.0)
-                .opacity(1.0)
-                .foregroundColor(Color.black)
+                .opacity(0.3)
+                .foregroundColor(Color.red)
             
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(self.totalProgress, 1.0)))
                 .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.green)
+                .foregroundColor(Color.red)
                 .rotationEffect(Angle(degrees: 270.0))
 //                .animation(.easeInOut)
             
@@ -34,12 +34,13 @@ struct DriveProgressBars: View {
             ZStack {
                     Circle()
                         .stroke(lineWidth: 26.1)
-                        .opacity(1.0)
-                        .foregroundColor(Color.black)
+                        .opacity(0.3)
+                        .foregroundColor(Color.green)
+                    
                 Circle()
                     .trim(from: 0.0, to: CGFloat(min(self.dayProgress, 1.0)))
                     .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.yellow)
+                    .foregroundColor(Color.green)
                     .rotationEffect(Angle(degrees: 270.0))
 //                    .animation(.easeInOut)
                 
@@ -47,7 +48,8 @@ struct DriveProgressBars: View {
                         Circle()
                             .stroke(lineWidth: 26.1)
                             .opacity(1.0)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.blue)
+                            .opacity(0.3)
                     Circle()
                         .trim(from: 0.0, to: CGFloat(min(self.nightProgress, 1.0)))
                         .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
