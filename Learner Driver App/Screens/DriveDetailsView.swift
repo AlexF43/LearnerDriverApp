@@ -16,87 +16,175 @@ struct DriveDetailsView: View {
     
     var body: some View {
         ScrollView {
-            VStack { 
-                HStack {
+            VStack (spacing: 0) {
+                HStack (spacing: 0) {
                     ZStack{
                         Rectangle()
-                                    .fill(Color.gray)
-                                    .opacity(0.3)
-                                    .frame(width:160, height:30)
-                                    .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
-                    Text("\(drive.distance) km")
-                        .fontWeight(.bold)
+                            .fill(Color.gray)
+                            .opacity(0.3)
+                            .frame(width:185, height:35)
+                            .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                        Text("\(drive.distance) km")
+                            .fontWeight(.bold)
                     }
-                    
-                            
-                    Spacer()
+                        
                     ZStack{
                         Rectangle()
-                                    .fill(Color.gray)
-                                    .opacity(0.3)
-                                    .frame(width:160, height:30)
-                                    .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
+                            .fill(Color.gray)
+                            .opacity(0.3)
+                            .frame(width:185, height:35)
+                            .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
                     Text( "Drive time")
-                        .fontWeight(.bold)}
+                        .fontWeight(.bold)
+                        
+                    }
                 }
+                .padding(.top)
                 .font(.title3)
 
-                Spacer()
+                Spacer(minLength: 15)
+                
                 ZStack{
                     Rectangle()
-                                .fill(Color.gray)
-                                .opacity(0.3)
-                                .frame(width:.infinity, height:50)
-                                
-                                .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
                                 
                     HStack {
-            
                         Text("Vehicle")
-                            .padding()
+                            .padding(13)
                     Spacer()
                         
                     Text(drive.vehicle)
-                            .padding()
-                    }}
-                HStack {
-                    Text("Supervisor")
+                            .padding(13)
+                    }
+                }
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("Supervisor")
+                            .padding(13)
                     Spacer()
+                        
                     Text(drive.supervisor)
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("Start Location")
+                
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("Start location")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.startLocation)")
+                        
+                    Text(drive.startLocation)
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("Final Location")
+                
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("End location")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.endLocation)")
+                        
+                    Text(drive.endLocation)
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("Start Odometer")
+                
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("Start odometer")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.startOdometer)")
+                        
+                    Text("\(drive.startOdometer)")
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("End Odometer")
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("End odometer")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.endOdometer)")
+                        
+                    Text("\(drive.endOdometer)")
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("Start Time")
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("Start time")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.startTime)")
+                        
+                    Text(drive.startTime)
+                            .padding(13)
+                    }
                 }
-                HStack {
-                    Text("End Time")
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color.gray)
+                        .opacity(0.3)
+                        .frame(width:370, height:50)
+                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
+                                
+                    HStack {
+                        Text("Start location")
+                            .padding(13)
                     Spacer()
-                    Text( "\(drive.endTime)")
+                        
+                    Text(drive.endTime)
+                            .padding(13)
+                    }
                 }
                 
             }
-            .padding()
+//            .padding()
         }
         .navigationTitle("Drive on \(drive.Date)")
     }
