@@ -11,9 +11,11 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                        
-                Text("Settings screen")
-                
+                VStack{
+                    NavigationLink(destination: EditProfile()) {
+                        ProfileBoxView()
+                    }
+                }
             }
             .navigationBarTitle(Text("Settings"))
         }

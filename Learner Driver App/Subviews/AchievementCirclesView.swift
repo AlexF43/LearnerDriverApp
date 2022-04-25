@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct AchievementCirclesView: View {
+    var totalHours: Int
+    var dayHours: Int
+    var nightHours: Int
+    var AchievedTotal: Bool
+    var AchievedDay: Bool
+    var AchievedNight: Bool
+    
     var body: some View {
-        VStack{
+        VStack (spacing: 5){
             
             Rectangle()
                 .stroke(Color.black, lineWidth: 0.5)
                 .frame(width:380, height:1)
             Text("Your Goals")
                 .font(.system(size: 25))
+//                .border(Color.black)
+            
             
             
             HStack{
@@ -23,7 +32,7 @@ struct AchievementCirclesView: View {
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(totalHours == 120 ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Image(systemName: "star.fill")
@@ -37,13 +46,13 @@ struct AchievementCirclesView: View {
                         .multilineTextAlignment(.center)
                     
                 }
-                .padding()
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 
                 VStack{
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(dayHours == 100 ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Image(systemName: "sun.max.fill")
@@ -56,13 +65,14 @@ struct AchievementCirclesView: View {
                         .frame(width:80)
                         .multilineTextAlignment(.center)
                 }
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
           
                 
                 VStack{
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(nightHours == 20 ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Image(systemName: "moon.fill")
@@ -77,7 +87,7 @@ struct AchievementCirclesView: View {
                         .frame(width:80)
                         .multilineTextAlignment(.center)
                 }
-                .padding()
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
             }
             .padding()
             
@@ -100,7 +110,7 @@ struct AchievementCirclesView: View {
                         .frame(width:80)
                         .multilineTextAlignment(.center)
                 }
-                .padding()
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 VStack{
                     
                     
@@ -123,7 +133,7 @@ struct AchievementCirclesView: View {
                         .frame(width:80)
                         .multilineTextAlignment(.center)
                 }
-                
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
              //   .padding()
                 
                 VStack{
@@ -144,18 +154,15 @@ struct AchievementCirclesView: View {
                         .frame(width:80)
                         .multilineTextAlignment(.center)
                 }
-                .padding()
-                
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
                 
             }
-            
-            
         }
     }
 }
 
 struct AchievementCirclesView_Previews: PreviewProvider {
     static var previews: some View {
-        AchievementCirclesView()
+        AchievementCirclesView(totalHours: 4, dayHours: 1, nightHours: 2, AchievedTotal: false, AchievedDay: false, AchievedNight: true)
     }
 }

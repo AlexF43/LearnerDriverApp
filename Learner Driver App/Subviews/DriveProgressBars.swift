@@ -18,6 +18,10 @@ struct DriveProgressBars: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 29.0)
+                .opacity(0.4)
+                .foregroundColor(Color.black)
+            Circle()
+                .stroke(lineWidth: 29.0)
                 .opacity(0.3)
                 .foregroundColor(Color.red)
             
@@ -32,6 +36,10 @@ struct DriveProgressBars: View {
                 .font(.title)
 //                .bold()
             ZStack {
+                Circle()
+                    .stroke(lineWidth: 29.0)
+                    .opacity(0.4)
+                    .foregroundColor(Color.black)
                     Circle()
                         .stroke(lineWidth: 26.1)
                         .opacity(0.3)
@@ -45,6 +53,10 @@ struct DriveProgressBars: View {
 //                    .animation(.easeInOut)
                 
                 ZStack {
+                    Circle()
+                        .stroke(lineWidth: 29.0)
+                        .opacity(0.4)
+                        .foregroundColor(Color.black)
                         Circle()
                             .stroke(lineWidth: 26.1)
                             .opacity(1.0)

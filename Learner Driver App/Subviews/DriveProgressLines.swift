@@ -33,7 +33,7 @@ struct DriveProgressLines: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .strokeBorder(Color.black,lineWidth: 1)
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.green))
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.red))
                     .frame(width: 350 * CGFloat(totalProgress), height: 20)
 
             }
@@ -51,7 +51,7 @@ struct DriveProgressLines: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .strokeBorder(Color.black,lineWidth: 1)
-                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.yellow))
+                    .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.green))
                     .frame(width: 350 * CGFloat(dayProgress), height: 20)
                 
             }

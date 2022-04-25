@@ -26,11 +26,18 @@ struct AcheivementsScreen: View {
                     totalProgress: calculateTotalProgres(drives: drivesContainer.drives),
                     nightProgress: calculateNightProgres(drives: drivesContainer.drives),
                     dayProgress: calculateDayProgres(drives: drivesContainer.drives))
+                    
+                    AchievementCirclesView(
+                        totalHours: calculateTotalHours(drives: drivesContainer.drives),
+                        dayHours: calculateDayHours(drives: drivesContainer.drives),
+                        nightHours: calculateNightHours(drives: drivesContainer.drives),
+                        AchievedTotal: false, AchievedDay: false, AchievedNight: true)
+                    
+
                 .padding()
               //  }
                 .navigationBarTitle(Text("Achievements"))
             
-                    AchievementCirclesView()
                 }
         }
     }
@@ -112,6 +119,13 @@ struct AcheivementsScreen: View {
             result = 1
         }
         return result;
+    }
+    func calculateTotalAchieved(drives: [Drive]) -> String {
+        var totalColor = "gray"
+        if calculateTotalHours(drives: drives) == 120 {
+            totalColor = "yellow"
+        }
+        return totalColor;
     }
 
 
