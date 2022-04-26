@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SettingsScreen: View {
+    @EnvironmentObject var PersonalContainer: PersonalContainer
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack{
-                    NavigationLink(destination: EditProfile()) {
+                    NavigationLink(destination: EditProfile(personal: PersonalContainer().personals)) {
                         ProfileBoxView()
                     }
                 }

@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct EditProfile: View {
+    @EnvironmentObject var PersonalContainer: PersonalContainer
+    
+    var personal: Personal
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(personal.usersName)
     }
 }
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfile()
+        EditProfile(personal: PersonalContainer().personals[0])
     }
 }

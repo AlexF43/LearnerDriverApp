@@ -14,6 +14,7 @@
 		0713CC9E280D099100983135 /* ProfileBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CC9D280D099100983135 /* ProfileBoxView.swift */; };
 		0713CCA22814FCF300983135 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA12814FCF300983135 /* EditProfile.swift */; };
 		0713CCA4281620D000983135 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA3281620D000983135 /* PersonalData.swift */; };
+		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
 		077767D827C30DA6003EB320 /* Delete button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077767D727C30DA6003EB320 /* Delete button.swift */; };
 		0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */; };
 		0784776E27881E59007C1D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776D27881E59007C1D47 /* ContentView.swift */; };
@@ -61,6 +62,7 @@
 		0713CC9D280D099100983135 /* ProfileBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBoxView.swift; sourceTree = "<group>"; };
 		0713CCA12814FCF300983135 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
+		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				078477D127896C5E007C1D47 /* Drive.swift */,
+				0713CCA52816228600983135 /* Personal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				07F3648427B094A5002C41E6 /* AddADriveScreen.swift in Sources */,
 				078477CE2789639C007C1D47 /* DrivesList.swift in Sources */,
 				0784777527881E5B007C1D47 /* Persistence.swift in Sources */,
+				0713CCA62816228600983135 /* Personal.swift in Sources */,
 				0713CCA22814FCF300983135 /* EditProfile.swift in Sources */,
 				07C21991279C38F8006A1963 /* AddADriveButton.swift in Sources */,
 				0713CCA4281620D000983135 /* PersonalData.swift in Sources */,
