@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct EditProfile: View {
-    @EnvironmentObject var PersonalContainer: PersonalContainer
+    @EnvironmentObject var personalContainer: PersonalContainer
     
-    var personal: Personal
-    
+    var name: String {
+        personalContainer.personal.usersName
+    }
+
     var body: some View {
-        Text(personal.usersName)
+        VStack{
+            TextField(personalContainer.personal.usersName, text: $personalContainer.personal.usersName)
+            Text(name)
+        }
     }
 }
 
-struct EditProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfile(personal: PersonalContainer().personals[0])
-    }
-}
+//struct EditProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditProfile()
+//    }
+//}

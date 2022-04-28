@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct SettingsScreen: View {
-    @EnvironmentObject var PersonalContainer: PersonalContainer
+    @EnvironmentObject var personalContainer: PersonalContainer
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack{
-                    NavigationLink(destination: EditProfile(personal: PersonalContainer().personals)) {
-                        ProfileBoxView()
+                    NavigationLink(destination: EditProfile()) {
+                        ProfileBoxView(
+                            initials: calculatedInitials(personal: personalContainer.personal))
                     }
                 }
             }
             .navigationBarTitle(Text("Settings"))
         }
     }
-}
-
-struct SettingsScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsScreen()
+    func calculatedInitials(personal: Personal) -> String {
+        var name: String {
+            personalContainer.personal.usersName
+        }
+        
+        let result = name.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }
+        return result;
     }
 }
+
+//struct SettingsScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingsScreen(personalContainer.personal)
+//    }
+//}

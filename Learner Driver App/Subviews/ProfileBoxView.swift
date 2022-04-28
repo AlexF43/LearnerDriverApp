@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ProfileBoxView: View {
+    @EnvironmentObject var personalContainer: PersonalContainer
+    
     var name: String {
-        "Alex Fogg"
-        
+        personalContainer.personal.usersName
     }
+
+    var initials: String
+    
+
     var body: some View {
         
         VStack{
@@ -31,12 +36,13 @@ struct ProfileBoxView: View {
                             .frame(width:100)
                         
                             .foregroundColor(Color.gray.opacity(0.1))
-                        Text("Test")
+                        Text(initials)
                             .foregroundColor(Color.black)
+                            .font(.system(size: 45))
                             
                     }
                     VStack (alignment: .leading){
-                        Text(name)
+                        Text(personalContainer.personal.usersName)
                             .foregroundColor(Color.black)
                             .font(.system(size: 30).bold())
                         Text("View and edit your profile")
@@ -54,6 +60,6 @@ struct ProfileBoxView: View {
 
 struct ProfileBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileBoxView()
+        ProfileBoxView(initials: "JK")
     }
 }

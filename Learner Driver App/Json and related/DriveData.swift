@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class DrivesContainer : ObservableObject {
     @Published var drives: [Drive]
     

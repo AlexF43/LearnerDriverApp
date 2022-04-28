@@ -10,10 +10,13 @@ import SwiftUI
 @main
 struct LearnerDriverApp: App {
     @StateObject private var drivesContainer = DrivesContainer()
+    @StateObject private var personalContainer = PersonalContainer()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(drivesContainer)
+                .environmentObject(personalContainer)
         }
     }
 }

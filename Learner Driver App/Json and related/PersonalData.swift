@@ -8,59 +8,60 @@
 import Foundation
 
 class PersonalContainer : ObservableObject {
-    @Published var personals: [Personal]
+    @Published var personal: Personal
 
     let filePersonal = "PersonalData.json"
 
 
     init() {
-        personals = [Personal]()
-        personals = load(filePersonal)
+        personal = Personal()
+        personal = load(filePersonal)
+        personal.usersName = "Joe Blogs"
     }
 
-    func load(_ filePersonal: String) -> [Personal] {
-        let data2: Data
+    func load(_ filePersonal: String) -> Personal {
+        let data: Data
 
-        let file2 = getDocumentsDirectory().appendingPathComponent(filePersonal)
+        let file = getDocumentsDirectory().appendingPathComponent(filePersonal)
 //        let file = file(.prettyPrinted)
-        print(file2)
+        print(file)
 
         do {
-            data2 = try Data(contentsOf: file2)
+            data = try Data(contentsOf: file)
         } catch {
             // file does not exist. Return a new empty list
-            return [Personal]()
+            return Personal()
         }
-
+        print(data)
         do {
-            let decoder2 = JSONDecoder()
-            return try decoder2.decode([Personal].self, from: data2)
+            let decoder = JSONDecoder()
+            return try decoder.decode(Personal.self, from: data)
         } catch {
-            fatalError("Couldn't parse \(filePersonal) as \([Personal].self):\n\(error)")
+            fatalError("Couldn't parse \(filePersonal) as \(Personal.self):\n\(error)")
         }
     }
 
-    func addPersonal(personal: Personal) {
-        personals.append(personal)
-        savePersonal()
-        personals = load(filePersonal)
-    }
+//    func addPersonal(personal: Personal) {
+//        personals.append(personal)
+//        savePersonal()
+//        personals = load(filePersonal)
+//    }
 
     func savePersonal() {
-        let encoder2 = JSONEncoder()
-        encoder2.outputFormatting = .prettyPrinted
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
 
         do {
-            let jsonData2 = try encoder2.encode(personals)
+            let jsonData = try encoder.encode(personal)
 
-            if let jsonString2 = String(data: jsonData2, encoding: .utf8) {
-                print(jsonString2)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
 
-                let file2 = getDocumentsDirectory().appendingPathComponent(filePersonal)
+                let file = getDocumentsDirectory().appendingPathComponent(filePersonal)
                 do {
-                    try jsonString2.write(to: file2, atomically: true, encoding: String.Encoding.utf8)
+                    try jsonString.write(to: file, atomically: true, encoding: String.Encoding.utf8)
                 } catch {
-                    fatalError("Couldn't save json string to \(file2)")
+                    fatalError("Couldn't save json string to \(file)")
                     // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
                 }
             }
@@ -70,8 +71,8 @@ class PersonalContainer : ObservableObject {
     }
 
     func getDocumentsDirectory() -> URL {
-        let paths2 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths2[0]
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
