@@ -184,7 +184,7 @@ struct AddADriveScreen: View {
             TextField("End Time", text: $drive.endTime)
                 }}
         }
-        Button("Save", action: save)
+        Button("Save", action: saveNewDrive)
             .foregroundColor(Color.white)
             .frame(width:70, height:30)
             .background(Color.blue)
@@ -193,7 +193,7 @@ struct AddADriveScreen: View {
             
 //        .title("Add a drive")
     }
-    func save() -> Void {
+    func saveNewDrive() -> Void {
         drive.startOdometer = Int(startOdometerStr) ?? 0
         drive.endOdometer = Int(endOdometerStr) ?? 0
         drivesContainer.addDrive(drive: drive)

@@ -7,15 +7,13 @@
 
 import Foundation
 
-struct Personal: Hashable, Codable, Identifiable {
+struct Personal: Hashable, Codable {
     
     init() {
-        id = 0
         usersName = ""
-        licenseInfo = ""
+        licenseInfo = 0
     }
-    
-    var id: Int
+
     var usersName: String
-    var licenseInfo: String
+    var licenseInfo: Int
 }

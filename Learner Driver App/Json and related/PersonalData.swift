@@ -17,6 +17,7 @@ class PersonalContainer : ObservableObject {
         personal = Personal()
         personal = load(filePersonal)
         personal.usersName = "Joe Blogs"
+        personal.licenseInfo = 09878921
     }
 
     func load(_ filePersonal: String) -> Personal {
@@ -41,11 +42,11 @@ class PersonalContainer : ObservableObject {
         }
     }
 
-//    func addPersonal(personal: Personal) {
-//        personals.append(personal)
-//        savePersonal()
-//        personals = load(filePersonal)
-//    }
+    func editPersonal(personal: Personal) {
+//        personal.append(personal)
+        savePersonal()
+//        personal = load(filePersonal)
+    }
 
     func savePersonal() {
         let encoder = JSONEncoder()

@@ -16,7 +16,6 @@ struct ProfileBoxView: View {
 
     var initials: String
     
-
     var body: some View {
         
         VStack{
@@ -49,12 +48,9 @@ struct ProfileBoxView: View {
                             .foregroundColor(Color.black)
                         
                     }
-                    
-                    
                 }
             }
         }
-    
     }
 }
 
