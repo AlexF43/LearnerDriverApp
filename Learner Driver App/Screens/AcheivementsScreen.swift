@@ -43,7 +43,7 @@ struct AcheivementsScreen: View {
         }
     }
     
-    func calculateTotalHours(drives: [Drive]) -> Int {
+    public func calculateTotalHours(drives: [Drive]) -> Int {
         var hoursDriven = 0.0
         for drive in drives {
             hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)

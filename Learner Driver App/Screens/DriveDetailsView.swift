@@ -12,8 +12,8 @@ struct DriveDetailsView: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     @Environment(\.managedObjectContext) private var viewContext
-    var drive: Drive
-    
+//    @State var drive: Drive
+
     var body: some View {
         ScrollView {
             VStack (spacing: 0) {
@@ -24,7 +24,7 @@ struct DriveDetailsView: View {
                             .opacity(0.3)
                             .frame(width:185, height:35)
                             .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-                        Text("\(drive.distance) km")
+                        Text("\(drivesContainer.currentDrive.distance) km")
                             .fontWeight(.bold)
                     }
                         
@@ -56,7 +56,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.vehicle)
+                    Text(drivesContainer.currentDrive.vehicle)
                             .padding(13)
                     }
                 }
@@ -73,7 +73,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.supervisor)
+                    Text(drivesContainer.currentDrive.supervisor)
                             .padding(13)
                     }
                 }
@@ -91,7 +91,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.startLocation)
+                    Text(drivesContainer.currentDrive.startLocation)
                             .padding(13)
                     }
                 }
@@ -109,7 +109,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.endLocation)
+                    Text(drivesContainer.currentDrive.endLocation)
                             .padding(13)
                     }
                 }
@@ -127,7 +127,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text("\(drive.startOdometer)")
+                    Text("\(drivesContainer.currentDrive.startOdometer)")
                             .padding(13)
                     }
                 }
@@ -144,7 +144,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text("\(drive.endOdometer)")
+                    Text("\(drivesContainer.currentDrive.endOdometer)")
                             .padding(13)
                     }
                 }
@@ -161,7 +161,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.startTime)
+                    Text(drivesContainer.currentDrive.startTime)
                             .padding(13)
                     }
                 }
@@ -178,7 +178,7 @@ struct DriveDetailsView: View {
                             .padding(13)
                     Spacer()
                         
-                    Text(drive.endTime)
+                    Text(drivesContainer.currentDrive.endTime)
                             .padding(13)
                     }
                 }
@@ -186,12 +186,17 @@ struct DriveDetailsView: View {
             }
 //            .padding()
         }
-        .navigationTitle("Drive on \(drive.Date)")
+        .navigationTitle("Drive on \(drivesContainer.currentDrive.Date)")
+        .toolbar {
+            NavigationLink(destination: AddADriveScreen(isNewDrive: false)) {
+                Text("Edit")
+            }
+        }
     }
 }
 
 struct DriveDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DriveDetailsView(drive: DrivesContainer().drives[0])
+        DriveDetailsView()
     }
 }

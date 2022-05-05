@@ -12,36 +12,16 @@ struct AddADriveScreen: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     
-    @State private var drive = Drive()
+//    @State var drive: Drive
+    @State var isNewDrive: Bool
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
     
-//    var id: Int
-//    var vehicle: String
-//    var supervisor: String
-//    var startTime: String
-//    var endTime: String
-//    var startOdometer: Int
-//    var endOdometer: Int
-//    var startLocation: String
-//    var endLocation: String
-//    var driveNotes: String
-//    var isDayTime: Bool
-//    var Date: String
-//    var time: Int
-//
-//    @State private var $distance: Int = 0 {
-//        drive.endOdometer - drive.startOdometer
-//    }
 //
     var body: some View {
-        VStack {
-            
-//            HStack {
-//                Text("\($drive.distance)")
-//
-//                Text("time should go here")
-//            }
+        Form{
+            Section {
+                VStack {
             
             
                 ZStack{
@@ -55,7 +35,7 @@ struct AddADriveScreen: View {
                         Text("Instructor").padding()
                         Spacer(minLength: 160)
                         
-                        TextField("Instructor", text: $drive.supervisor)
+                        TextField("Instructor", text: $drivesContainer.currentDrive.supervisor)
                 }
             }
             
@@ -69,7 +49,7 @@ struct AddADriveScreen: View {
                 HStack (spacing: 0) {
                     Text("Vehicle").padding()
                     Spacer(minLength: 180)
-            TextField("Vehicle", text: $drive.vehicle)
+            TextField("Vehicle", text: $drivesContainer.currentDrive.vehicle)
                 }
             }
             ZStack{
@@ -83,8 +63,8 @@ struct AddADriveScreen: View {
                     Text("Suburbs").padding()
                     Spacer(minLength: 1)
                    // Text("yuh").padding()
-                    Text("\(drive.startLocation) to \(drive.endLocation)").padding()
-                   // TextField("Suburbs", text: ("\($drive.startLocation) to \($drive.endLocation)")
+                    Text("\(drivesContainer.currentDrive.startLocation) to \(drivesContainer.currentDrive.endLocation)").padding()
+                   // TextField("Suburbs", text: ("\($drivesContainer.currentDrive.startLocation) to \($drivesContainer.currentDrive.endLocation)")
                 }}
             
             ZStack{
@@ -97,7 +77,7 @@ struct AddADriveScreen: View {
                 HStack (spacing: 0) {
                     Text("Start Location").padding()
                     Spacer(minLength: 140)
-            TextField("Start Location", text: $drive.startLocation)
+            TextField("Start Location", text: $drivesContainer.currentDrive.startLocation)
                 }}
             
             
@@ -111,7 +91,7 @@ struct AddADriveScreen: View {
                 HStack (spacing: 0) {
                     Text("End Location").padding()
                     Spacer(minLength: 160)
-            TextField("End Location", text: $drive.endLocation)
+            TextField("End Location", text: $drivesContainer.currentDrive.endLocation)
                 }
             }
             
@@ -132,12 +112,12 @@ struct AddADriveScreen: View {
                 
             
                 .keyboardType(.numberPad)
-//                .onReceive(Just(startOdometerStr)) { newValue in
-//                    let filtered = newValue.filter { "0123456789".contains($0) }
-//                    if filtered != newValue {
-//                        self.startOdometerStr = filtered
-//                    }
-               // }
+                .onReceive(Just(startOdometerStr)) { newValue in
+                    let filtered = newValue.filter { "0123456789".contains($0) }
+                    if filtered != newValue {
+                        self.startOdometerStr = filtered
+                    }
+                }
                 }}
             ZStack{
                 
@@ -169,7 +149,7 @@ struct AddADriveScreen: View {
                 HStack (spacing: 0) {
                     Text("Start time").padding()
                     Spacer(minLength: 160)
-            TextField("Start Time", text: $drive.startTime)
+            TextField("Start Time", text: $drivesContainer.currentDrive.startTime)
                 }}
             ZStack{
                 
@@ -181,29 +161,34 @@ struct AddADriveScreen: View {
                 HStack (spacing: 0) {
                     Text("End Time").padding()
                     Spacer(minLength: 160)
-            TextField("End Time", text: $drive.endTime)
+            TextField("End Time", text: $drivesContainer.currentDrive.endTime)
                 }}
         }
-        Button("Save", action: saveNewDrive)
+        Button("Save", action: saveDrive)
             .foregroundColor(Color.white)
             .frame(width:70, height:30)
             .background(Color.blue)
-           
             .border(Color.black, width:2)
+            }
+        }
             
 //        .title("Add a drive")
     }
-    func saveNewDrive() -> Void {
-        drive.startOdometer = Int(startOdometerStr) ?? 0
-        drive.endOdometer = Int(endOdometerStr) ?? 0
-        drivesContainer.addDrive(drive: drive)
+    func saveDrive() -> Void {
+        drivesContainer.currentDrive.startOdometer = Int(startOdometerStr) ?? 0
+        drivesContainer.currentDrive.endOdometer = Int(endOdometerStr) ?? 0
+        if isNewDrive {
+            drivesContainer.addDrive(drive: drivesContainer.currentDrive)
+        } else {
+            drivesContainer.saveCurrentDrive()
+        }
     }
 }
 
 
 struct addADriveScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddADriveScreen()
+        AddADriveScreen(isNewDrive: true)
     }
 }
 

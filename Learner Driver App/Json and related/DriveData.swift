@@ -9,12 +9,14 @@ import Foundation
 
 class DrivesContainer : ObservableObject {
     @Published var drives: [Drive]
+    @Published var currentDrive: Drive
     
     let fileName = "sampleDrives.json"
 
     
     init() {
         drives = [Drive]()
+        currentDrive = Drive()
         drives = load(fileName)
     }
     
@@ -44,6 +46,18 @@ class DrivesContainer : ObservableObject {
         drives.append(drive)
         saveDrives()
         drives = load(fileName)
+    }
+    
+    func saveCurrentDrive() {
+        print("drives[0] \(drives[0].vehicle)")
+        print("currentDrive \(currentDrive.vehicle)")
+        if let foundDrive = drives.first(where: { $0.id == currentDrive.id }) {
+            if let index = drives.firstIndex(of: foundDrive) {
+                drives[index] = currentDrive
+            }
+        }
+        print("drives[0] \(drives[0].vehicle)")
+        saveDrives()
     }
 
     func saveDrives() {

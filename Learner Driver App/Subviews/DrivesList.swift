@@ -59,20 +59,29 @@ struct DrivesList: View {
                                       
                                     
                                       
-                                      HStack {
-                                          Text("A full-screen modal view.")
-                                              .font(.title)
-                                          Text("Tap to Dismiss")
+                                      VStack {
+                                          Spacer(minLength: 40)
+                                          HStack {
+                                              Image(systemName: "chevron.backward")
+                                                  .foregroundColor(Color.blue)
+                                          Spacer()
+                                              Text("Add a drive")
+                                                  .font(.title)
+                                                  .foregroundColor(Color.black)
+                                              Spacer()
+                                          }
+                                          .frame(width: 200)
                                       }
+                                      .frame(height: 50)
                                       .onTapGesture {
                                           isPresenting.toggle()
                                       }
                                       .frame(height: 50)
                                       
-                                      .foregroundColor(.white)
-                                      .background(Color.blue)
+//                                      .foregroundColor(.white)
+//                                      .background(Color.)
                                       .ignoresSafeArea(edges: .all)
-                                            AddADriveScreen()
+                                            AddADriveScreen(isNewDrive: true)
                                             
                                       
                                 }
@@ -101,12 +110,14 @@ struct DrivesList: View {
                     
                     ForEach(drivesContainer.drives, id: \.self) { drive in
                         NavigationLink {
-                           DriveDetailsView(drive: drive)
+                            DriveDetailsView()
                        } label: {
                            DrivesRow(drive: drive)
                        }
                        .padding(.horizontal)
-
+                       .simultaneousGesture(TapGesture().onEnded({
+                           drivesContainer.currentDrive = drive
+                       }))
                     }
 
                     Divider()

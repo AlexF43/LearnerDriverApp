@@ -23,12 +23,21 @@ struct EditProfile: View {
             TextField("\(personalContainer.personal.licenseInfo)", value: $personalContainer.personal.licenseInfo, formatter: NumberFormatter())
             Divider()
             
+            Button("Save", action: savePersonalInfo)
+                .foregroundColor(Color.white)
+                .frame(width:70, height:30)
+                .background(Color.blue)
+                .border(Color.black, width:2)
+                
+            }
+            
         }
-    }
-    
+//    }
+
     func savePersonalInfo() -> Void {
-        personalContainer.personal.licenseInfo = Int(licenseNumStr) ?? 0
-        personalContainer.editPersonal(personal: personalContainer.personal)
+//        personalContainer.personal.licenseInfo = Int(licenseNumStr) ?? 0
+        personalContainer.savePersonal()
+        //take back to setting screen
     }
     
     
