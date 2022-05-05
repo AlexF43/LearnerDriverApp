@@ -35,14 +35,13 @@ struct AcheivementsScreen: View {
                     
 
                 .padding()
-              //  }
+                    
                 .navigationBarTitle(Text("Achievements"))
             
                 }
+            }
         }
     }
-    }
-    //exact hours
     
     func calculateTotalHours(drives: [Drive]) -> Int {
         var hoursDriven = 0.0
@@ -82,7 +81,6 @@ struct AcheivementsScreen: View {
         return result;
     }
         
-    // Calculated percentages
     
     func calculateTotalProgres(drives: [Drive]) -> Float {
         var hoursDriven = 0.0

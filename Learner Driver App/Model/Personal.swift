@@ -10,10 +10,14 @@ import Foundation
 struct Personal: Hashable, Codable {
     
     init() {
-        usersName = ""
+        usersFirstName = ""
+        usersLastName = ""
         licenseInfo = 0
+        sdc = true
     }
 
-    var usersName: String
+    var usersFirstName: String
+    var usersLastName: String
     var licenseInfo: Int
+    var sdc: Bool
 }

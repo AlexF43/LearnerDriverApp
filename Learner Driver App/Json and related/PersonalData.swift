@@ -16,8 +16,10 @@ class PersonalContainer : ObservableObject {
     init() {
         personal = Personal()
         personal = load(filePersonal)
-        personal.usersName = "Joe Blogs"
+        personal.usersFirstName = "Joe"
+        personal.usersLastName = "Blogs"
         personal.licenseInfo = 09878921
+        personal.sdc = false
     }
 
     func load(_ filePersonal: String) -> Personal {

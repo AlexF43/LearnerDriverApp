@@ -11,7 +11,6 @@
 		0713CC9827D5777D00983135 /* AcheivementsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CC9727D5777D00983135 /* AcheivementsScreen.swift */; };
 		0713CC9A27E045A900983135 /* DriveProgressLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CC9927E045A900983135 /* DriveProgressLines.swift */; };
 		0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CC9B27FEA18200983135 /* AchievementCirclesView.swift */; };
-		0713CC9E280D099100983135 /* ProfileBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CC9D280D099100983135 /* ProfileBoxView.swift */; };
 		0713CCA22814FCF300983135 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA12814FCF300983135 /* EditProfile.swift */; };
 		0713CCA4281620D000983135 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA3281620D000983135 /* PersonalData.swift */; };
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
@@ -59,7 +58,6 @@
 		0713CC9727D5777D00983135 /* AcheivementsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcheivementsScreen.swift; sourceTree = "<group>"; };
 		0713CC9927E045A900983135 /* DriveProgressLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveProgressLines.swift; sourceTree = "<group>"; };
 		0713CC9B27FEA18200983135 /* AchievementCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCirclesView.swift; sourceTree = "<group>"; };
-		0713CC9D280D099100983135 /* ProfileBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBoxView.swift; sourceTree = "<group>"; };
 		0713CCA12814FCF300983135 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 				07BB359227998EDA00B246F1 /* DriveProgressBars.swift */,
 				0713CC9927E045A900983135 /* DriveProgressLines.swift */,
 				0713CC9B27FEA18200983135 /* AchievementCirclesView.swift */,
-				0713CC9D280D099100983135 /* ProfileBoxView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				077767D827C30DA6003EB320 /* Delete button.swift in Sources */,
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
-				0713CC9E280D099100983135 /* ProfileBoxView.swift in Sources */,
 				0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,

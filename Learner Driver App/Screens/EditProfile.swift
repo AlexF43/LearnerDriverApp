@@ -11,14 +11,13 @@ struct EditProfile: View {
     @EnvironmentObject var personalContainer: PersonalContainer
     @State private var licenseNumStr: String = ""
     
-    var name: String {
-        personalContainer.personal.usersName
-    }
-    
 
     var body: some View {
         VStack{
-            TextField(personalContainer.personal.usersName, text: $personalContainer.personal.usersName)
+            TextField(personalContainer.personal.usersFirstName, text: $personalContainer.personal.usersFirstName)
+            Divider()
+            
+            TextField(personalContainer.personal.usersLastName, text: $personalContainer.personal.usersLastName)
             Divider()
             
             TextField("\(personalContainer.personal.licenseInfo)", value: $personalContainer.personal.licenseInfo, formatter: NumberFormatter())
