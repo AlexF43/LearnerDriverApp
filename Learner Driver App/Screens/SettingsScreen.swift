@@ -70,8 +70,8 @@ struct SettingsScreen: View {
                 }
                 
                 
-            .navigationBarTitle(Text("Settings"))
         }
+            .navigationBarTitle(Text("Settings"))
     }
     
 //    func calculatedInitials(personal: Personal) -> String {
