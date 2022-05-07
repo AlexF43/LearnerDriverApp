@@ -13,8 +13,11 @@ struct DriveDetailsView: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var editingState: String = "Edit"
+    @State private var isEditing: Bool = true
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
+    @State private var showAlert = false
 //    @State var drive: Drive
 
     var body: some View {
@@ -24,24 +27,28 @@ struct DriveDetailsView: View {
                     Text("Instructor")
                     TextField("Instructor", text: $drivesContainer.currentDrive.supervisor)
                         .multilineTextAlignment(.trailing)
+                        .disabled(isEditing)
                 }
                 
                 HStack (spacing: 0) {
                     Text("Vehicle")
                     TextField("Vehicle", text: $drivesContainer.currentDrive.vehicle)
                         .multilineTextAlignment(.trailing)
+                        .disabled(isEditing)
                 }
                 
                 HStack (spacing: 0) {
                     Text("Start Suburb")
                     TextField("Start Suburb", text: $drivesContainer.currentDrive.startLocation)
                         .multilineTextAlignment(.trailing)
+                        .disabled(isEditing)
                 }
                 
                 HStack (spacing: 0) {
                     Text("End Suburb")
                     TextField("End Suburb", text: $drivesContainer.currentDrive.endLocation)
                         .multilineTextAlignment(.trailing)
+                        .disabled(isEditing)
                 }
                 
                 
@@ -49,6 +56,7 @@ struct DriveDetailsView: View {
                     Text("Start Odometer")
                     TextField("Start Odometer", text: $startOdometerStr)
                         .multilineTextAlignment(.trailing)
+                        .disabled(isEditing)
                         .keyboardType(.numberPad)
                         .onReceive(Just(startOdometerStr)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
@@ -63,6 +71,7 @@ struct DriveDetailsView: View {
                     TextField("End Odometer", text: $endOdometerStr)
                         .multilineTextAlignment(.trailing)
                         .keyboardType(.numberPad)
+                        .disabled(isEditing)
                         .onReceive(Just(endOdometerStr)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
                             if filtered != newValue {
@@ -76,191 +85,71 @@ struct DriveDetailsView: View {
                 HStack (spacing: 0) {
                     Text("Start Time")
                     TextField("Start Time", text: $drivesContainer.currentDrive.startTime)
+                        .disabled(isEditing)
                         .multilineTextAlignment(.trailing)
                 }
                 
                 HStack (spacing: 0) {
                     Text("End Time")
                     TextField("End Time", text: $drivesContainer.currentDrive.endTime)
+                        .disabled(isEditing)
                         .multilineTextAlignment(.trailing)
                 }
-//        ScrollView {
-//            VStack (spacing: 0) {
-//                HStack (spacing: 0) {
-//                    ZStack{
-//                        Rectangle()
-//                            .fill(Color.gray)
-//                            .opacity(0.3)
-//                            .frame(width:185, height:35)
-//                            .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//                        Text("\(drivesContainer.currentDrive.distance) km")
-//                            .fontWeight(.bold)
-//                    }
-//
-//                    ZStack{
-//                        Rectangle()
-//                            .fill(Color.gray)
-//                            .opacity(0.3)
-//                            .frame(width:185, height:35)
-//                            .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//                    Text( "Drive time")
-//                        .fontWeight(.bold)
-//
-//                    }
-//                }
-//                .padding(.top)
-//                .font(.title3)
-//
-//                Spacer(minLength: 15)
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("Vehicle")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.vehicle)
-//                            .padding(13)
-//                    }
-//                }
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("Supervisor")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.supervisor)
-//                            .padding(13)
-//                    }
-//                }
-//
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("Start location")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.startLocation)
-//                            .padding(13)
-//                    }
-//                }
-//
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("End location")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.endLocation)
-//                            .padding(13)
-//                    }
-//                }
-//
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("Start odometer")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text("\(drivesContainer.currentDrive.startOdometer)")
-//                            .padding(13)
-//                    }
-//                }
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("End odometer")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text("\(drivesContainer.currentDrive.endOdometer)")
-//                            .padding(13)
-//                    }
-//                }
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("Start time")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.startTime)
-//                            .padding(13)
-//                    }
-//                }
-//
-//                ZStack{
-//                    Rectangle()
-//                        .fill(Color.gray)
-//                        .opacity(0.3)
-//                        .frame(width:370, height:50)
-//                        .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 2))
-//
-//                    HStack {
-//                        Text("End Time")
-//                            .padding(13)
-//                    Spacer()
-//
-//                    Text(drivesContainer.currentDrive.endTime)
-//                            .padding(13)
-//                    }
-//                }
                 
+                Button("Save", action: attemptToSaveDrive)
+                    .foregroundColor(Color.white)
+                    .frame(width:70, height:30, alignment: .center)
+                    .background(Color.blue)
+                    .border(Color.black, width:2)
+                    .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Unable to save drive"),
+                                message: Text("Please enter the required infomation into every field")
+                )}
             }
-//            .padding()
+        
         }
+        .onAppear(perform: initialiseStrings)
         .navigationTitle("Drive on \(drivesContainer.currentDrive.Date)")
         .toolbar {
-            NavigationLink(destination: AddADriveScreen(isNewDrive: false)) {
-                Text("Edit")
-            }
+            Button(editingState, action: editPressed)
+//            NavigationLink(destination: AddADriveScreen(isNewDrive: false)) {
+//                Text("Edit")
         }
+        
+    }
+        
+    func editPressed() -> Void {
+        if editingState == "Edit" {
+            isEditing = false
+            editingState = "Delete"
+        } else {
+            drivesContainer.deleteCurrentDrive()
+        }
+        
+    }
+    
+    func initialiseStrings() -> Void {
+        startOdometerStr = String(drivesContainer.currentDrive.startOdometer)
+        endOdometerStr = String(drivesContainer.currentDrive.endOdometer)
+    }
+
+    fileprivate func isAllDataFilledIn() -> Bool {
+        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || drivesContainer.currentDrive.startTime == "" || drivesContainer.currentDrive.endTime == ""
+    }
+
+    func attemptToSaveDrive() -> Void {
+        if isAllDataFilledIn() {
+            showAlert = true
+            print("equals nil ")
+        } else {
+            saveDrive()
+                print("does not equal")
+        }
+    }
+
+    func saveDrive() -> Void {
+        drivesContainer.saveCurrentDrive()
     }
 }
 

@@ -59,6 +59,15 @@ class DrivesContainer : ObservableObject {
         print("drives[0] \(drives[0].vehicle)")
         saveDrives()
     }
+    
+    func deleteCurrentDrive() {
+        if let foundDrive = drives.first(where: { $0.id == currentDrive.id }) {
+            if let index = drives.firstIndex(of: foundDrive) {
+                drives.remove(at: index)
+            }
+        }
+        saveDrives()
+    }
 
     func saveDrives() {
         let encoder = JSONEncoder()

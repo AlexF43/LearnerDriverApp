@@ -10,7 +10,7 @@ import Foundation
 struct Drive: Hashable, Codable, Identifiable {
     
     init() {
-        id = 0
+        id = UUID().uuidString
         vehicle = ""
         supervisor = ""
         startTime = ""
@@ -26,7 +26,7 @@ struct Drive: Hashable, Codable, Identifiable {
         Date = ""
     }
     
-    var id: Int
+    var id: String
     var vehicle: String
     var supervisor: String
     var startTime: String
