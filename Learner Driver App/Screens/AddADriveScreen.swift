@@ -12,6 +12,7 @@ struct AddADriveScreen: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     
+    @State private var showAlert = false
     @State var isNewDrive: Bool
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
@@ -86,15 +87,33 @@ struct AddADriveScreen: View {
                 }
         
             
-        Button("Save", action: saveDrive)
+        Button("Save", action: attemptToSaveDrive)
             .foregroundColor(Color.white)
             .frame(width:70, height:30, alignment: .center)
             .background(Color.blue)
             .border(Color.black, width:2)
+            .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Unable to save drive"),
+                        message: Text("Please enter the required infomation into every field")
+                        )}
             }
         }
     }
         
+    fileprivate func isAllDataFilledIn() -> Bool {
+        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || drivesContainer.currentDrive.startTime == "" || drivesContainer.currentDrive.endTime == ""
+    }
+    
+    func attemptToSaveDrive() -> Void {
+        if isAllDataFilledIn() {
+            showAlert = true
+            print("equals nil ")
+        } else {
+            saveDrive()
+                print("does not equal")
+        }
+    }
             
 //        .title("Add a drive")
     func saveDrive() -> Void {
