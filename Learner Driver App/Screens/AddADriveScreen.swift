@@ -17,6 +17,12 @@ struct AddADriveScreen: View {
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
     
+    func makeNewDriveIfNecessary() {
+        if isNewDrive {
+            drivesContainer.currentDrive = Drive()
+        }
+    }
+    
 //
     var body: some View {
         Form{
@@ -98,7 +104,7 @@ struct AddADriveScreen: View {
                         message: Text("Please enter the required infomation into every field")
                         )}
             }
-        }
+        }.onAppear(perform: makeNewDriveIfNecessary)
     }
         
     fileprivate func isAllDataFilledIn() -> Bool {
