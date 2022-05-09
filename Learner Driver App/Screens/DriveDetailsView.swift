@@ -38,6 +38,14 @@ struct DriveDetailsView: View {
                 }
                 
                 HStack (spacing: 0) {
+                    Text("Date")
+                    DatePicker("", selection: $drivesContainer.currentDrive.driveDate, displayedComponents: .date)
+//                        .labelsHidden()
+                        .multilineTextAlignment(.trailing)
+//                        .labelsHidden()
+                }
+                
+                HStack (spacing: 0) {
                     Text("Start Suburb")
                     TextField("Start Suburb", text: $drivesContainer.currentDrive.startLocation)
                         .multilineTextAlignment(.trailing)
@@ -144,7 +152,7 @@ struct DriveDetailsView: View {
             print("equals nil ")
         } else {
             saveDrive()
-                print("does not equal")
+            print("does not equal")
         }
     }
 

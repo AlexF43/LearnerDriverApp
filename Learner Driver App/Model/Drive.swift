@@ -7,10 +7,27 @@
 
 import Foundation
 
+extension String {
+
+    func toDate(withFormat format: String = "yyyy-MM-dd")-> Date? {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tehran")
+        dateFormatter.locale = Locale(identifier: "fa-IR")
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+
+        return date
+
+    }
+}
+
 struct Drive: Hashable, Codable, Identifiable {
     
     init() {
         id = UUID().uuidString
+        dateStr = ""
         vehicle = ""
         supervisor = ""
         startTime = ""
@@ -26,6 +43,7 @@ struct Drive: Hashable, Codable, Identifiable {
         Date = ""
     }
     
+    var dateStr: String // date String for storage in the JSON.
     var id: String
     var vehicle: String
     var supervisor: String
@@ -45,7 +63,35 @@ struct Drive: Hashable, Codable, Identifiable {
     var distance: Int {
         endOdometer - startOdometer
     }
-
+    
+    // this function allows us to access dateStr as a Date object
+    // so it will work with things like date pickers
+    var driveDate: Date {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            if let theDate = dateFormatter.date(from: dateStr) {
+                return theDate
+            } 
+            return Foundation.Date()
+        } set(newDate) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateStr = dateFormatter.string(from: newDate)
+        }
+    }
+    
+    // formatted date for display to the user
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        return dateFormatter.string(from: driveDate)
+    
+    }
+    
+//    var dateAsString: String {
+//
+//    }
 }
 
 

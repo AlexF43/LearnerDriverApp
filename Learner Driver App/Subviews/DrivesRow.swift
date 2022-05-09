@@ -35,7 +35,8 @@ struct DrivesRow: View {
                     Text(drive.vehicle)
                         .font(.title2)
                     
-                    Text("Date of drive")
+                    Text("Drive on " + drive.formattedDate)
+//                    print(drive.vehicle)
                 }
                 .padding(.vertical, 25)
                 

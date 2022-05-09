@@ -36,6 +36,7 @@ class DrivesContainer : ObservableObject {
 
         do {
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode([Drive].self, from: data)
         } catch {
             fatalError("Couldn't parse \(filename) as \([Drive].self):\n\(error)")

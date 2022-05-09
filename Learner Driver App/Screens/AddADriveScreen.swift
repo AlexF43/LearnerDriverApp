@@ -40,6 +40,14 @@ struct AddADriveScreen: View {
                 }
                 
                 HStack (spacing: 0) {
+                    Text("Date")
+                    DatePicker("", selection: $drivesContainer.currentDrive.driveDate, displayedComponents: .date)
+//                        .labelsHidden()
+                        .multilineTextAlignment(.trailing)
+//                        .labelsHidden()
+                }
+                
+                HStack (spacing: 0) {
                     Text("Start Suburb")
                     TextField("Start Suburb", text: $drivesContainer.currentDrive.startLocation)
                         .multilineTextAlignment(.trailing)
