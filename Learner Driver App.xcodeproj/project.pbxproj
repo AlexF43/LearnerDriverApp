@@ -14,6 +14,8 @@
 		0713CCA22814FCF300983135 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA12814FCF300983135 /* EditProfile.swift */; };
 		0713CCA4281620D000983135 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA3281620D000983135 /* PersonalData.swift */; };
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
+		0768AFF62828FAC10057B215 /* OWOneCall in Frameworks */ = {isa = PBXBuildFile; productRef = 0768AFF52828FAC10057B215 /* OWOneCall */; };
+		0768AFF82828FB130057B215 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFF72828FB130057B215 /* Weather.swift */; };
 		077767D827C30DA6003EB320 /* Delete button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077767D727C30DA6003EB320 /* Delete button.swift */; };
 		0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */; };
 		0784776E27881E59007C1D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776D27881E59007C1D47 /* ContentView.swift */; };
@@ -61,6 +63,7 @@
 		0713CCA12814FCF300983135 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
+		0768AFF72828FB130057B215 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0768AFF62828FAC10057B215 /* OWOneCall in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				078477D127896C5E007C1D47 /* Drive.swift */,
+				0768AFF72828FB130057B215 /* Weather.swift */,
 				0713CCA52816228600983135 /* Personal.swift */,
 			);
 			path = Model;
@@ -235,6 +240,9 @@
 			dependencies = (
 			);
 			name = "Learner Driver App";
+			packageProductDependencies = (
+				0768AFF52828FAC10057B215 /* OWOneCall */,
+			);
 			productName = "Learner Driver App";
 			productReference = 0784776827881E59007C1D47 /* Learner Driver App.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +315,9 @@
 				Base,
 			);
 			mainGroup = 0784775F27881E59007C1D47;
+			packageReferences = (
+				0768AFF42828FAC10057B215 /* XCRemoteSwiftPackageReference "OWOneCall" */,
+			);
 			productRefGroup = 0784776927881E59007C1D47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -364,6 +375,7 @@
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
 				0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */,
+				0768AFF82828FB130057B215 /* Weather.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,
 				0713CC9A27E045A900983135 /* DriveProgressLines.swift in Sources */,
@@ -717,6 +729,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0768AFF42828FAC10057B215 /* XCRemoteSwiftPackageReference "OWOneCall" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/workingDog/OWOneCall.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0768AFF52828FAC10057B215 /* OWOneCall */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0768AFF42828FAC10057B215 /* XCRemoteSwiftPackageReference "OWOneCall" */;
+			productName = OWOneCall;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0784777627881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld */ = {

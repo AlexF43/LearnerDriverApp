@@ -7,27 +7,28 @@
 
 import SwiftUI
 import Combine
+import OWOneCall
 
 struct AddADriveScreen: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
-    
+
     @State private var showAlert = false
     @State var isNewDrive: Bool
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
+
+    let weatherProvider = OWProvider(apiKey: "18d1d8e759fe97b7cc88165748a58ba2")
+    let lang = "en"
+    let frmt = "yyyy-MM-dd"
     
-    func makeNewDriveIfNecessary() {
-        if isNewDrive {
-            drivesContainer.currentDrive = Drive()
-        }
-    }
+    @State var weather = OWResponse()
     
-//
     var body: some View {
         Form{
             Section {
                 HStack (spacing: 0) {
+                    Text(weather.current?.weatherInfo() ?? "")
                     Text("Instructor")
                     TextField("Instructor", text: $drivesContainer.currentDrive.supervisor)
                         .multilineTextAlignment(.trailing)
@@ -111,13 +112,29 @@ struct AddADriveScreen: View {
                         title: Text("Unable to save drive"),
                         message: Text("Please enter the required infomation into every field")
                         )}
+            }.onAppear(perform: makeNewDriveIfNecessary)
+        } .task {
+            if let results = await weatherProvider.getWeather(lat: 35.661991, lon: 139.762735, options: OWOptions(excludeMode: [], units: .metric, lang: "en")) {
+                weather = results
             }
-        }.onAppear(perform: makeNewDriveIfNecessary)
+        }
+    
     }
+    
+//perform: makeNewDriveIfNecessary
         
     fileprivate func isAllDataFilledIn() -> Bool {
         return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || drivesContainer.currentDrive.startTime == "" || drivesContainer.currentDrive.endTime == ""
     }
+    
+    func loadData() {
+         
+         let myOptions = OWOptions(excludeMode: [], units: .metric, lang: "en")
+         weatherProvider.getWeather(lat: -33.861536, lon: 151.215206, weather: $weather, options: myOptions)
+         
+         // for historical data in the past
+         //         weatherProvider.getWeather(lat: 35.661991, lon: 139.762735, weather: $weather, options: OWHistOptions.yesterday())
+     }
     
     func attemptToSaveDrive() -> Void {
         if isAllDataFilledIn() {
@@ -128,8 +145,13 @@ struct AddADriveScreen: View {
                 print("does not equal")
         }
     }
+    
+    func makeNewDriveIfNecessary() {
+        if isNewDrive {
+            drivesContainer.currentDrive = Drive()
+        }
+    }
             
-//        .title("Add a drive")
     func saveDrive() -> Void {
         drivesContainer.currentDrive.startOdometer = Int(startOdometerStr) ?? 0
         drivesContainer.currentDrive.endOdometer = Int(endOdometerStr) ?? 0
