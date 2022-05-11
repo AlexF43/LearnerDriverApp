@@ -40,10 +40,11 @@ struct SettingsScreen: View {
                         }
                     }
                 }
-                
+                NavigationLink(destination: MyView()) {
                 Section(header: Text("Management")){   // nums of items next to <
                     Text("Instructors ")
                     Text("Vehicles")
+                }
                 }
                 
                 Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <

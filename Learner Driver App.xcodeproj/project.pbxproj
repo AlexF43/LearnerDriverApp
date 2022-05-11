@@ -16,6 +16,8 @@
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
 		0768AFF62828FAC10057B215 /* OWOneCall in Frameworks */ = {isa = PBXBuildFile; productRef = 0768AFF52828FAC10057B215 /* OWOneCall */; };
 		0768AFF82828FB130057B215 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFF72828FB130057B215 /* Weather.swift */; };
+		0768AFFC282A07BD0057B215 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFFB282A07BD0057B215 /* Location.swift */; };
+		0768AFFE282A0AA30057B215 /* Test location view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFFD282A0AA30057B215 /* Test location view.swift */; };
 		077767D827C30DA6003EB320 /* Delete button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077767D727C30DA6003EB320 /* Delete button.swift */; };
 		0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */; };
 		0784776E27881E59007C1D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776D27881E59007C1D47 /* ContentView.swift */; };
@@ -64,6 +66,8 @@
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		0768AFF72828FB130057B215 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		0768AFFB282A07BD0057B215 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		0768AFFD282A0AA30057B215 /* Test location view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test location view.swift"; sourceTree = "<group>"; };
 		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				078477D7278D8596007C1D47 /* NavigationBar.swift */,
 				078477CD2789639C007C1D47 /* DrivesList.swift */,
 				07C21990279C38F8006A1963 /* AddADriveButton.swift */,
+				0768AFFD282A0AA30057B215 /* Test location view.swift */,
+				0768AFFB282A07BD0057B215 /* Location.swift */,
 				078477CF278963BE007C1D47 /* DrivesRow.swift */,
 				077767D727C30DA6003EB320 /* Delete button.swift */,
 				07BB359227998EDA00B246F1 /* DriveProgressBars.swift */,
@@ -368,6 +374,7 @@
 				0713CCA22814FCF300983135 /* EditProfile.swift in Sources */,
 				07C21991279C38F8006A1963 /* AddADriveButton.swift in Sources */,
 				0713CCA4281620D000983135 /* PersonalData.swift in Sources */,
+				0768AFFE282A0AA30057B215 /* Test location view.swift in Sources */,
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */,
@@ -375,6 +382,7 @@
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
 				0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */,
+				0768AFFC282A07BD0057B215 /* Location.swift in Sources */,
 				0768AFF82828FB130057B215 /* Weather.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,

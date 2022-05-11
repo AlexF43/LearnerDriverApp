@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import OWOneCall
+import CoreLocation
 
 struct AddADriveScreen: View {
     
@@ -17,6 +18,17 @@ struct AddADriveScreen: View {
     @State var isNewDrive: Bool
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
+//    let locationManager = LocationManager()
+    
+    @State var locationManager = LocationManager()
+    
+    var userLatitude: String {
+        return "\(locationManager.lastLocation?.coordinate.latitude ?? 0)"
+    }
+    
+    var userLongitude: String {
+        return "\(locationManager.lastLocation?.coordinate.longitude ?? 0)"
+    }
 
     let weatherProvider = OWProvider(apiKey: "18d1d8e759fe97b7cc88165748a58ba2")
     let lang = "en"
@@ -27,16 +39,21 @@ struct AddADriveScreen: View {
     var body: some View {
         Form{
             Section {
+//                HStack (spacing: 0) {
+//                    Text("Instructor")
+//                    TextField("Instructor", text: $drivesContainer.currentDrive.supervisor)
+//                        .multilineTextAlignment(.trailing)
+//                }
+                
                 HStack (spacing: 0) {
-                    Text(weather.current?.weatherInfo() ?? "")
-                    Text("Instructor")
-                    TextField("Instructor", text: $drivesContainer.currentDrive.supervisor)
+                    Text(userLatitude + " " + userLongitude)
+                    TextField("Vehicle", text: $drivesContainer.currentDrive.vehicle)
                         .multilineTextAlignment(.trailing)
                 }
                 
                 HStack (spacing: 0) {
-                    Text("Vehicle")
-                    TextField("Vehicle", text: $drivesContainer.currentDrive.vehicle)
+                    Text(weather.current?.weatherInfo() ?? "Retreiveing Weather")
+//                    TextField("Weather", text: $drivesContainer.currentDrive.supervisor)
                         .multilineTextAlignment(.trailing)
                 }
                 
@@ -112,7 +129,8 @@ struct AddADriveScreen: View {
                         title: Text("Unable to save drive"),
                         message: Text("Please enter the required infomation into every field")
                         )}
-            }.onAppear(perform: makeNewDriveIfNecessary)
+//            }.onAppear(perform: makeNewDriveIfNecessary, perform: requestAlwaysAuthorization())
+            }
         } .task {
             if let results = await weatherProvider.getWeather(lat: 35.661991, lon: 139.762735, options: OWOptions(excludeMode: [], units: .metric, lang: "en")) {
                 weather = results
@@ -164,9 +182,9 @@ struct AddADriveScreen: View {
 }
 
 
-struct addADriveScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AddADriveScreen(isNewDrive: true)
-    }
-}
+//struct addADriveScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddADriveScreen(isNewDrive: true)
+//    }
+//}
 
