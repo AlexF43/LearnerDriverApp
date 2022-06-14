@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct SupervisorsView: View {
-    @EnvironmentObject var SupervisorsContainer: SupervisorsContainer
+    @EnvironmentObject var supervisorsContainer: SupervisorsContainer
 //    var supervisor: Supervisor
 
     var body: some View {
-//        List(SupervisorsContainer.supervisors) { Supervisor in
-                SupervisorsRow(supervisor: Supervisor)
-//            }
-        ForEach(SupervisorsContainer.supervisors, id: \.self) { drive in
+
+        ForEach(supervisorsContainer.supervisors, id: \.self) { supervisor in
 //            ZStack {
 //                Rectangle()
-//            SupervisorRow(supervisor: Supervisor)
+            SupervisorRow(supervisor: supervisor)
 //            }
         }
     }

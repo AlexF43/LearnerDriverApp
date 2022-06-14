@@ -14,7 +14,7 @@ struct ContentView: View {
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
-//    @ObservedObject var SupervisorsContainer: SupervisorsContainer
+    
     var body: some View {
         
 
