@@ -13,6 +13,7 @@ import CoreLocation
 struct AddADriveScreen: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
+//    drivesContainer.currentDrive = Drive()
 
     @State private var showAlert = false
     @State var isNewDrive: Bool
@@ -134,6 +135,7 @@ struct AddADriveScreen: View {
         } .task {
             if let results = await weatherProvider.getWeather(lat: 35.661991, lon: 139.762735, options: OWOptions(excludeMode: [], units: .metric, lang: "en")) {
                 weather = results
+                drivesContainer.currentDrive = Drive()
             }
         }
     

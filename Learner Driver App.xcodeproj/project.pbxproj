@@ -14,10 +14,15 @@
 		0713CCA22814FCF300983135 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA12814FCF300983135 /* EditProfile.swift */; };
 		0713CCA4281620D000983135 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA3281620D000983135 /* PersonalData.swift */; };
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
+		0762E295284439A8003C7469 /* SupervisorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E294284439A8003C7469 /* SupervisorRow.swift */; };
 		0768AFF62828FAC10057B215 /* OWOneCall in Frameworks */ = {isa = PBXBuildFile; productRef = 0768AFF52828FAC10057B215 /* OWOneCall */; };
 		0768AFF82828FB130057B215 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFF72828FB130057B215 /* Weather.swift */; };
 		0768AFFC282A07BD0057B215 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFFB282A07BD0057B215 /* Location.swift */; };
 		0768AFFE282A0AA30057B215 /* Test location view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFFD282A0AA30057B215 /* Test location view.swift */; };
+		0768B000282DCA040057B215 /* SupervisorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768AFFF282DCA040057B215 /* SupervisorData.swift */; };
+		0768B002282DCC150057B215 /* Supervisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768B001282DCC150057B215 /* Supervisor.swift */; };
+		0768B004282DD68A0057B215 /* SupervisorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768B003282DD68A0057B215 /* SupervisorsView.swift */; };
+		0768B006282DD76B0057B215 /* SupervisorsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768B005282DD76B0057B215 /* SupervisorsRow.swift */; };
 		077767D827C30DA6003EB320 /* Delete button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077767D727C30DA6003EB320 /* Delete button.swift */; };
 		0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */; };
 		0784776E27881E59007C1D47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784776D27881E59007C1D47 /* ContentView.swift */; };
@@ -65,9 +70,14 @@
 		0713CCA12814FCF300983135 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
+		0762E294284439A8003C7469 /* SupervisorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorRow.swift; sourceTree = "<group>"; };
 		0768AFF72828FB130057B215 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		0768AFFB282A07BD0057B215 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0768AFFD282A0AA30057B215 /* Test location view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test location view.swift"; sourceTree = "<group>"; };
+		0768AFFF282DCA040057B215 /* SupervisorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorData.swift; sourceTree = "<group>"; };
+		0768B001282DCC150057B215 /* Supervisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supervisor.swift; sourceTree = "<group>"; };
+		0768B003282DD68A0057B215 /* SupervisorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorsView.swift; sourceTree = "<group>"; };
+		0768B005282DD76B0057B215 /* SupervisorsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorsRow.swift; sourceTree = "<group>"; };
 		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
@@ -125,7 +135,9 @@
 				0784776D27881E59007C1D47 /* ContentView.swift */,
 				0713CCA12814FCF300983135 /* EditProfile.swift */,
 				0713CC9527D5735800983135 /* SettingsScreen.swift */,
+				0768B003282DD68A0057B215 /* SupervisorsView.swift */,
 				0713CC9727D5777D00983135 /* AcheivementsScreen.swift */,
+				0762E294284439A8003C7469 /* SupervisorRow.swift */,
 				07F3648327B094A5002C41E6 /* AddADriveScreen.swift */,
 				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
 			);
@@ -136,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				078477D3278AB965007C1D47 /* DriveData.swift */,
+				0768AFFF282DCA040057B215 /* SupervisorData.swift */,
 				0713CCA3281620D000983135 /* PersonalData.swift */,
 				078477CB2789636C007C1D47 /* sampleDrives.json */,
 			);
@@ -210,12 +223,12 @@
 				078477CD2789639C007C1D47 /* DrivesList.swift */,
 				07C21990279C38F8006A1963 /* AddADriveButton.swift */,
 				0768AFFD282A0AA30057B215 /* Test location view.swift */,
-				0768AFFB282A07BD0057B215 /* Location.swift */,
 				078477CF278963BE007C1D47 /* DrivesRow.swift */,
 				077767D727C30DA6003EB320 /* Delete button.swift */,
 				07BB359227998EDA00B246F1 /* DriveProgressBars.swift */,
 				0713CC9927E045A900983135 /* DriveProgressLines.swift */,
 				0713CC9B27FEA18200983135 /* AchievementCirclesView.swift */,
+				0768B005282DD76B0057B215 /* SupervisorsRow.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -223,7 +236,9 @@
 		078477CA27895E2E007C1D47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0768AFFB282A07BD0057B215 /* Location.swift */,
 				078477D127896C5E007C1D47 /* Drive.swift */,
+				0768B001282DCC150057B215 /* Supervisor.swift */,
 				0768AFF72828FB130057B215 /* Weather.swift */,
 				0713CCA52816228600983135 /* Personal.swift */,
 			);
@@ -378,13 +393,18 @@
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */,
+				0768B000282DCA040057B215 /* SupervisorData.swift in Sources */,
+				0762E295284439A8003C7469 /* SupervisorRow.swift in Sources */,
 				077767D827C30DA6003EB320 /* Delete button.swift in Sources */,
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
 				0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */,
+				0768B006282DD76B0057B215 /* SupervisorsRow.swift in Sources */,
 				0768AFFC282A07BD0057B215 /* Location.swift in Sources */,
 				0768AFF82828FB130057B215 /* Weather.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
+				0768B004282DD68A0057B215 /* SupervisorsView.swift in Sources */,
+				0768B002282DCC150057B215 /* Supervisor.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,
 				0713CC9A27E045A900983135 /* DriveProgressLines.swift in Sources */,
 				0784777827881E5B007C1D47 /* Learner_Driver_App.xcdatamodeld in Sources */,

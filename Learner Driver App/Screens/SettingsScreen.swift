@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @EnvironmentObject var personalContainer: PersonalContainer
+//    @ObservedObject var SupervisorsContainer: SupervisorsContainer
     
     var body: some View {
         NavigationView {
@@ -46,11 +47,11 @@ struct SettingsScreen: View {
                     Text("Vehicles")
                 }
                 }
-                
+                NavigationLink(destination: SupervisorsView()) {
                 Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
                     Text("Submission Completion")
                 }
-                
+                }
                 if personalContainer.personal.sdc == false {     // and hours > 50
                     Section(header: Text("Safer Drivers Course")) {
                         Text("Safer Drivers Course")

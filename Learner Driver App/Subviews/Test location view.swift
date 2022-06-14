@@ -11,6 +11,8 @@ struct MyView: View {
     
     @StateObject var locationManager = LocationManager()
     
+//    func requestWhenInUseAuthorization()
+    
     var userLatitude: String {
         return "\(locationManager.lastLocation?.coordinate.latitude ?? 0)"
     }
