@@ -12,13 +12,19 @@ struct SupervisorsView: View {
 //    var supervisor: Supervisor
 
     var body: some View {
-
-        ForEach(supervisorsContainer.supervisors, id: \.self) { supervisor in
-//            ZStack {
-//                Rectangle()
-            SupervisorRow(supervisor: supervisor)
-//            }
+        List {
+            ForEach(supervisorsContainer.supervisors, id: \.self) { supervisor in
+                SupervisorRow(supervisor: supervisor)
+            }
+            .onDelete(perform: delete)
         }
+        .toolbar {
+            EditButton()
+        }
+    }
+    func delete(at offsets: IndexSet) {
+        
+        supervisorsContainer.deleteCurrentSupervisor()
     }
 }
 
