@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SupervisorsContainer : ObservableObject {
     @Published var supervisors: [Supervisor]
@@ -57,6 +58,14 @@ class SupervisorsContainer : ObservableObject {
             }
         }
 //        print("supervisors[0] \(supervisors[0].vehicle)")
+        saveSupervisor()
+    }
+    
+    func deleteSupervisor(atPosition position: Int ) {
+        let foundSupervisor = supervisors[position]
+        if let index = supervisors.firstIndex(of: foundSupervisor) {
+            supervisors.remove(at: index)
+        }
         saveSupervisor()
     }
     

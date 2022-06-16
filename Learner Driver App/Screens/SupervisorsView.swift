@@ -23,8 +23,9 @@ struct SupervisorsView: View {
         }
     }
     func delete(at offsets: IndexSet) {
-        
-        supervisorsContainer.deleteCurrentSupervisor()
+        if let min = offsets.min() {
+            supervisorsContainer.deleteSupervisor(atPosition: min)
+        }
     }
 }
 
