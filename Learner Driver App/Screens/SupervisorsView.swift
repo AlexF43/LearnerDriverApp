@@ -18,10 +18,35 @@ struct SupervisorsView: View {
             }
             .onDelete(perform: delete)
         }
+            
+        .navigationTitle("Supervisors")
         .toolbar {
             EditButton()
+                
+            Section {
+                Text("hello")
+            }
         }
     }
+    
+    
+    
+//
+//    Button(action: {
+//        print("Delete tapped!")
+//    }) {
+//        HStack {
+//            Image(systemName: "trash")
+//                .font(.title)
+//            Text("Delete")
+//                .fontWeight(.semibold)
+//                .font(.title)
+//        }
+//        .padding()
+//        .foregroundColor(.white)
+//        .background(Color.red)
+//        .cornerRadius(40)
+        
     func delete(at offsets: IndexSet) {
         if let min = offsets.min() {
             supervisorsContainer.deleteSupervisor(atPosition: min)
