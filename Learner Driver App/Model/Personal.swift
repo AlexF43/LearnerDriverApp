@@ -13,12 +13,14 @@ struct Personal: Hashable, Codable {
         usersFirstName = ""
         usersLastName = ""
         licenseInfo = 0
-        sdc = true
+        sdc = false
+        hpt = false
     }
 
     var usersFirstName: String
     var usersLastName: String
     var licenseInfo: Int
     var sdc: Bool
+    var hpt: Bool
     
 }

@@ -1,30 +1,34 @@
 //
-//  SupervisorsView.swift
+//  SupervisorAdd.swift
 //  Learner Driver App
 //
-//  Created by Alex Fogg on 13/5/22.
+//  Created by Alex Fogg on 20/6/22.
 //
 
 import SwiftUI
 
-struct SupervisorsView: View {
+struct SupervisorAdd: View {
     @EnvironmentObject var supervisorsContainer: SupervisorsContainer
-
+    
     var body: some View {
-        List {
+        
+        Form{
             Section {
-                ForEach(supervisorsContainer.supervisors, id: \.self) { supervisor in
-                    SupervisorRow(supervisor: supervisor)
+                HStack (spacing: 0) {
+                    Text("Instructor")
+                    TextField("Instructor", text: $supervisorsContainer.currentSupervisor.firstName)
+                        .multilineTextAlignment(.trailing)
                 }
-                .onDelete(perform: delete)
+                
             }
+            
             Section(footer:
                         HStack(alignment: .center) {
                 Spacer()
 
-                NavigationLink {
-                        SupervisorAdd()
-                } label: {
+                Button( action: {
+                    supervisorsContainer.addSupervisor(supervisor: supervisorsContainer.currentSupervisor)
+                }) {
                         HStack {
                             Image(systemName: "plus")
                                 .font(.body)
@@ -42,32 +46,14 @@ struct SupervisorsView: View {
             }) {
                 EmptyView()
             }
-        }
-        
-        .navigationTitle("Supervisors")
-        .toolbar {
-            EditButton()
-                
-    }
-    
-}
-    
-    
-//
-
-        
-    
-    
-    
-    func delete(at offsets: IndexSet) {
-        if let min = offsets.min() {
-            supervisorsContainer.deleteSupervisor(atPosition: min)
+        } .task {
+            supervisorsContainer.currentSupervisor = Supervisor()
         }
     }
 }
 
-//struct SupervisorsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SupervisorsView()
-//    }
-//}
+struct SupervisorAdd_Previews: PreviewProvider {
+    static var previews: some View {
+        SupervisorAdd()
+    }
+}
