@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @EnvironmentObject var personalContainer: PersonalContainer
-//    @ObservedObject var SupervisorsContainer: SupervisorsContainer
+    //    @ObservedObject var SupervisorsContainer: SupervisorsContainer
     
     var body: some View {
         NavigationView {
@@ -41,24 +41,28 @@ struct SettingsScreen: View {
                         }
                     }
                 }
-                NavigationLink(destination: MyView()) {
-                Section(header: Text("Management")){   // nums of items next to <
-                    Text("Instructors ")
-                    Text("Vehicles")
-                }
-                }
                 NavigationLink(destination: SupervisorsView()) {
-                Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
-                    Text("Submission Completion")
-                }
-                }
-                if personalContainer.personal.sdc == false {     // and hours > 50
-                    Section(header: Text("Safer Drivers Course")) {
-                        Text("Safer Drivers Course")
+                    Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
+                        // on this page have like 20/20 night, 120/120 normal hpt - completed
+//                        Text("Submission Completion")
                     }
                 }
                 
-                if personalContainer.personal.sdc == false {    //  new hpt item in personal and date since lisence < 10 months
+                NavigationLink(destination: SupervisorsView()) {
+                    Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
+                        Text("Submission Completion")
+                    }
+                }
+                
+                
+                if personalContainer.personal.sdc == false { // and hours > 50
+                    NavigationLink(destination: SaferDriversCourse()) {
+                        Section(header: Text("Safer Drivers Course")) {
+                        }
+                    }
+                }
+                
+                if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since lisence < 10 months
                     Section(header: Text("Hazard Perception Test")) {
                         Text("Hazard Perception Test")
                     }
@@ -70,46 +74,46 @@ struct SettingsScreen: View {
                     Link("Hazard perception test", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/driver-licence-tests/hazard-perception-test")!)
                     Link("Booking your Ps test", destination: URL(string: "https://www.myrta.com/wps/portal/extvp/myrta/licence/tbs/tbs-login/!ut/p/z1/jZJfT4MwFMW_ij7wKLdsbkMTY_ZHHZM5MjccfTFlXrEKLWkLTD-9RRMfjE771uac05PfvUBhA1SwmmfMcClYbu8J7d-T6UUUrzsDz-_2JiS4HA9G3iLyyNiDGO4-Jb-cIQG6PyGx_sH9LLqI5uHU9xbBiXUdh-NlMJl3rmYdWAupCtvlFijQZ1aznVtKZXI0LtOQkPaZF2XOt9zM5QPmkBhVYfsscGdijg0kKAyqCRrGc20r072trrvfBeQ26JNgtI4X8bDr-as_BFf9L8HvXGZAUylfhivUJpQZFy3toUi7fgZU4SMqVG6l7BCejCn1qUMc0jSNq1HVfIuu0I2bydpllUN-sj5JbWDzs6PVt6kfoarQUZVafksUD6giplihgUrFban1MoSN_bjUDileS7l1iIVal-eV4me2nUIt8xrVqUk1F9z8P3nF7QxhM7IMDtiBsRQ-dmnvLpTFpb-76dU3Ry_L6VuId77ppX52-A6_4eIx/")!)
                 }
-        }
+            }
             .navigationBarTitle(Text("Settings"))
+        }
+        
+        //    func calculatedInitials(personal: Personal) -> String {
+        //        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
+        //
+        //        let result = String(initials)
+        //        return result;
+        //    }
     }
     
-//    func calculatedInitials(personal: Personal) -> String {
-//        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
-//
-//        let result = String(initials)
-//        return result;
-//    }
-}
-
-//struct SettingsScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsScreen(personalContainer.personal)
-//    }
-//}
-//
-//struct SettingsScreen: View {
-//    @EnvironmentObject var personalContainer: PersonalContainer
-//
-//    var body: some View {
-//        NavigationView {
-//            ScrollView {
-//                VStack{
-//                    NavigationLink(destination: EditProfile()) {
-//                        ProfileBoxView(
-//                            initials: calculatedInitials(personal: personalContainer.personal))
-//                    }
-//                }
-//            }
-//            .navigationBarTitle(Text("Settings"))
-//        }
-//    }
-//
-//    func calculatedInitials(personal: Personal) -> String {
-//        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
-//
-//        let result = String(initials)
-//        return result;
-//    }
-//}
+    //struct SettingsScreen_Previews: PreviewProvider {
+    //    static var previews: some View {
+    //        SettingsScreen(personalContainer.personal)
+    //    }
+    //}
+    //
+    //struct SettingsScreen: View {
+    //    @EnvironmentObject var personalContainer: PersonalContainer
+    //
+    //    var body: some View {
+    //        NavigationView {
+    //            ScrollView {
+    //                VStack{
+    //                    NavigationLink(destination: EditProfile()) {
+    //                        ProfileBoxView(
+    //                            initials: calculatedInitials(personal: personalContainer.personal))
+    //                    }
+    //                }
+    //            }
+    //            .navigationBarTitle(Text("Settings"))
+    //        }
+    //    }
+    //
+    //    func calculatedInitials(personal: Personal) -> String {
+    //        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
+    //
+    //        let result = String(initials)
+    //        return result;
+    //    }
+    //}
 }

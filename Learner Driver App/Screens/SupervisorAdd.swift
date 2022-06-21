@@ -22,27 +22,26 @@ struct SupervisorAdd: View {
                 
             }
             
-            Section(footer:
-                        HStack(alignment: .center) {
+            Section(footer:HStack(alignment: .center) {
                 Spacer()
-
+                
                 Button( action: {
                     supervisorsContainer.addSupervisor(supervisor: supervisorsContainer.currentSupervisor)
                 }) {
-                        HStack {
-                            Image(systemName: "plus")
-                                .font(.body)
-                            Text("Add")
-                                .fontWeight(.semibold)
-                                .font(.title3)
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(30)
+                    HStack {
+                        Text("Save")
+                            .fontWeight(.semibold)
+                            .font(.title3)
+                        //                            Image(systemName: "square.and.arrow.down")
+                        //                                .font(.body)
                     }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(30)
+                }
                 Spacer()
-
+                
             }) {
                 EmptyView()
             }

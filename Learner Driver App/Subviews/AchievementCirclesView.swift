@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AchievementCirclesView: View {
+    @EnvironmentObject var personalContainer: PersonalContainer
     var totalHours: Int
     var dayHours: Int
     var nightHours: Int
@@ -97,7 +98,7 @@ struct AchievementCirclesView: View {
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(personalContainer.personal.sdc == true ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Text("S")
@@ -111,13 +112,13 @@ struct AchievementCirclesView: View {
                         .multilineTextAlignment(.center)
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
+                
+                
                 VStack{
-                    
-                    
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(personalContainer.personal.hpt == true ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Text("H")
