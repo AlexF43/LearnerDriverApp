@@ -55,12 +55,12 @@ struct SettingsScreen: View {
                 }
                 
                 
-                if personalContainer.personal.sdc == false { // and hours > 50
+//                if personalContainer.personal.sdc == false { // and hours > 50
                     NavigationLink(destination: SaferDriversCourse()) {
                         Section(header: Text("Safer Drivers Course")) {
                         }
                     }
-                }
+//                }
                 
                 if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since lisence < 10 months
                     Section(header: Text("Hazard Perception Test")) {
@@ -70,7 +70,6 @@ struct SettingsScreen: View {
                 
                 Section(header: Text("Links")) {
                     Link("Learner restrictions", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/learner-driver-licence")!)
-                    Link("Safer Drivers Course", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/learner-driver-licence/safer-drivers-course")!)
                     Link("Hazard perception test", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/driver-licence-tests/hazard-perception-test")!)
                     Link("Booking your Ps test", destination: URL(string: "https://www.myrta.com/wps/portal/extvp/myrta/licence/tbs/tbs-login/!ut/p/z1/jZJfT4MwFMW_ij7wKLdsbkMTY_ZHHZM5MjccfTFlXrEKLWkLTD-9RRMfjE771uac05PfvUBhA1SwmmfMcClYbu8J7d-T6UUUrzsDz-_2JiS4HA9G3iLyyNiDGO4-Jb-cIQG6PyGx_sH9LLqI5uHU9xbBiXUdh-NlMJl3rmYdWAupCtvlFijQZ1aznVtKZXI0LtOQkPaZF2XOt9zM5QPmkBhVYfsscGdijg0kKAyqCRrGc20r072trrvfBeQ26JNgtI4X8bDr-as_BFf9L8HvXGZAUylfhivUJpQZFy3toUi7fgZU4SMqVG6l7BCejCn1qUMc0jSNq1HVfIuu0I2bydpllUN-sj5JbWDzs6PVt6kfoarQUZVafksUD6giplihgUrFban1MoSN_bjUDileS7l1iIVal-eV4me2nUIt8xrVqUk1F9z8P3nF7QxhM7IMDtiBsRQ-dmnvLpTFpb-76dU3Ry_L6VuId77ppX52-A6_4eIx/")!)
                 }

@@ -16,7 +16,6 @@ class PersonalContainer : ObservableObject {
     init() {
         personal = Personal()
         personal = load(filePersonal)
-        personal.sdc = false
     }
 
     func load(_ filePersonal: String) -> Personal {
@@ -62,7 +61,6 @@ class PersonalContainer : ObservableObject {
                     try jsonString.write(to: file, atomically: true, encoding: String.Encoding.utf8)
                 } catch {
                     fatalError("Couldn't save json string to \(file)")
-                    // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
                 }
             }
         } catch {
