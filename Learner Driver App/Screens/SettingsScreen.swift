@@ -41,32 +41,38 @@ struct SettingsScreen: View {
                         }
                     }
                 }
-                NavigationLink(destination: SupervisorsView()) {
-                    Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
-                        // on this page have like 20/20 night, 120/120 normal hpt - completed
-//                        Text("Submission Completion")
-                    }
-                }
                 
-                NavigationLink(destination: SupervisorsView()) {
-                    Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
-                        Text("Submission Completion")
-                    }
-                }
-                
-                
-//                if personalContainer.personal.sdc == false { // and hours > 50
-                    NavigationLink(destination: SaferDriversCourse()) {
-                        Section(header: Text("Safer Drivers Course")) {
+                Section(header: Text("Management")) {
+                    NavigationLink(destination: Submission()) {
+                        Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
+                            // on this page have like 20/20 night, 120/120 normal hpt - completed
+    //                        Text("Submission Completion")
                         }
                     }
-//                }
-                
-                if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since lisence < 10 months
-                    Section(header: Text("Hazard Perception Test")) {
-                        Text("Hazard Perception Test")
+                    
+                    NavigationLink(destination: SupervisorsView()) {
+                        Section(header: Text("Supervisors")) {     // completion percentatage at end of screen next to <
+                            // on this page have like 20/20 night, 120/120 normal hpt - completed
+    //                        Text("Submission Completion")
+                        }
                     }
                 }
+                
+                Section(header: Text("Courses")) {
+    //                if personalContainer.personal.sdc == false { // and hours > 50
+                        NavigationLink(destination: SaferDriversCourse()) {
+                            Section(header: Text("Safer Drivers Course")) {
+                            }
+                        }
+    //                }
+                    
+    //                if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since lisence < 10 months
+                    NavigationLink(destination: HazardPerception()) {
+                        Section(header: Text("Hazard Perception Test")) {
+                        }
+                    }
+                }
+//                }
                 
                 Section(header: Text("Links")) {
                     Link("Learner restrictions", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/learner-driver-licence")!)
@@ -76,43 +82,5 @@ struct SettingsScreen: View {
             }
             .navigationBarTitle(Text("Settings"))
         }
-        
-        //    func calculatedInitials(personal: Personal) -> String {
-        //        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
-        //
-        //        let result = String(initials)
-        //        return result;
-        //    }
     }
-    
-    //struct SettingsScreen_Previews: PreviewProvider {
-    //    static var previews: some View {
-    //        SettingsScreen(personalContainer.personal)
-    //    }
-    //}
-    //
-    //struct SettingsScreen: View {
-    //    @EnvironmentObject var personalContainer: PersonalContainer
-    //
-    //    var body: some View {
-    //        NavigationView {
-    //            ScrollView {
-    //                VStack{
-    //                    NavigationLink(destination: EditProfile()) {
-    //                        ProfileBoxView(
-    //                            initials: calculatedInitials(personal: personalContainer.personal))
-    //                    }
-    //                }
-    //            }
-    //            .navigationBarTitle(Text("Settings"))
-    //        }
-    //    }
-    //
-    //    func calculatedInitials(personal: Personal) -> String {
-    //        let initials = personalContainer.personal.usersFirstName.prefix(1) + personalContainer.personal.usersLastName.prefix(1)
-    //
-    //        let result = String(initials)
-    //        return result;
-    //    }
-    //}
 }

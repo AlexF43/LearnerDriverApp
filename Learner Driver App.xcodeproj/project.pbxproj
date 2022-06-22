@@ -14,6 +14,8 @@
 		0713CCA22814FCF300983135 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA12814FCF300983135 /* EditProfile.swift */; };
 		0713CCA4281620D000983135 /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA3281620D000983135 /* PersonalData.swift */; };
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
+		0762171F2862D599005A4CEA /* HazardPerception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762171E2862D599005A4CEA /* HazardPerception.swift */; };
+		076217212862DAB3005A4CEA /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217202862DAB3005A4CEA /* Submission.swift */; };
 		0762E295284439A8003C7469 /* SupervisorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E294284439A8003C7469 /* SupervisorRow.swift */; };
 		0762E297285FE996003C7469 /* SupervisorAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E296285FE996003C7469 /* SupervisorAdd.swift */; };
 		0762E29928614EE4003C7469 /* SaferDriversCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E29828614EE4003C7469 /* SaferDriversCourse.swift */; };
@@ -71,6 +73,8 @@
 		0713CCA12814FCF300983135 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0713CCA3281620D000983135 /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
+		0762171E2862D599005A4CEA /* HazardPerception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazardPerception.swift; sourceTree = "<group>"; };
+		076217202862DAB3005A4CEA /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		0762E294284439A8003C7469 /* SupervisorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorRow.swift; sourceTree = "<group>"; };
 		0762E296285FE996003C7469 /* SupervisorAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorAdd.swift; sourceTree = "<group>"; };
 		0762E29828614EE4003C7469 /* SaferDriversCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaferDriversCourse.swift; sourceTree = "<group>"; };
@@ -136,8 +140,10 @@
 			children = (
 				0784776D27881E59007C1D47 /* ContentView.swift */,
 				0713CCA12814FCF300983135 /* EditProfile.swift */,
+				076217202862DAB3005A4CEA /* Submission.swift */,
 				0713CC9527D5735800983135 /* SettingsScreen.swift */,
 				0762E29828614EE4003C7469 /* SaferDriversCourse.swift */,
+				0762171E2862D599005A4CEA /* HazardPerception.swift */,
 				0768B003282DD68A0057B215 /* SupervisorsView.swift */,
 				0713CC9727D5777D00983135 /* AcheivementsScreen.swift */,
 				0762E294284439A8003C7469 /* SupervisorRow.swift */,
@@ -395,6 +401,7 @@
 				0762E297285FE996003C7469 /* SupervisorAdd.swift in Sources */,
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
+				0762171F2862D599005A4CEA /* HazardPerception.swift in Sources */,
 				07BB359327998EDA00B246F1 /* DriveProgressBars.swift in Sources */,
 				0762E29928614EE4003C7469 /* SaferDriversCourse.swift in Sources */,
 				0768B000282DCA040057B215 /* SupervisorData.swift in Sources */,
@@ -407,6 +414,7 @@
 				0768AFFC282A07BD0057B215 /* Location.swift in Sources */,
 				0768AFF82828FB130057B215 /* Weather.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
+				076217212862DAB3005A4CEA /* Submission.swift in Sources */,
 				0768B004282DD68A0057B215 /* SupervisorsView.swift in Sources */,
 				0768B002282DCC150057B215 /* Supervisor.swift in Sources */,
 				0784779B2788245A007C1D47 /* DriveDetailsView.swift in Sources */,
