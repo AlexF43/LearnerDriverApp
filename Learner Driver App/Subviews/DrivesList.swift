@@ -48,43 +48,49 @@ struct DrivesList: View {
                                     
 //                                }
                                 
-                                Button (action: {
-                                      isPresenting.toggle()
-                                }) {
+                                
+                                NavigationLink(destination: AddADriveScreen(isNewDrive: true)) {
                                     AddADriveButton()
-                                         .padding()
                                 }
-                                  .fullScreenCover(isPresented: $isPresenting,
-                                                   onDismiss: didDismiss) {
-                                      
-                                    
-                                      
-                                      VStack {
-                                          Spacer(minLength: 40)
-                                          HStack {
-                                              Image(systemName: "chevron.backward")
-                                                  .foregroundColor(Color.blue)
-                                          Spacer()
-                                              Text("Add a drive")
-                                                  .font(.title)
-                                                  .foregroundColor(Color.black)
-                                              Spacer()
-                                          }
-                                          .frame(width: 200)
-                                      }
-                                      .frame(height: 50)
-                                      .onTapGesture {
-                                          isPresenting.toggle()
-                                      }
-                                      .frame(height: 50)
-                                      
-//                                      .foregroundColor(.white)
-//                                      .background(Color.)
-                                      .ignoresSafeArea(edges: .all)
-                                            AddADriveScreen(isNewDrive: true)
+                                .padding()
+                                
+//                                Button (action: {
+//                                      isPresenting.toggle()
+//                                }) {
+//                                    AddADriveButton()
+//                                         .padding()
+//                                }
+//                                  .fullScreenCover(isPresented: $isPresenting,
+//                                                   onDismiss: didDismiss) {
+//
+//
+//
+//                                      VStack {
+//                                          Spacer(minLength: 40)
+//                                          HStack {
+//                                              Image(systemName: "chevron.backward")
+//                                                  .foregroundColor(Color.blue)
+//                                          Spacer()
+//                                              Text("Add a drive")
+//                                                  .font(.title)
+//                                                  .foregroundColor(Color.black)
+//                                              Spacer()
+//                                          }
+//                                          .frame(width: 200)
+//                                      }
+//                                      .frame(height: 50)
+//                                      .onTapGesture {
+//                                          isPresenting.toggle()
+//                                      }
+//                                      .frame(height: 50)
+//
+////                                      .foregroundColor(.white)
+////                                      .background(Color.)
+//                                      .ignoresSafeArea(edges: .all)
+//                                            AddADriveScreen(isNewDrive: true)
                                             
                                       
-                                }
+                                
                             }
                         }
                     }

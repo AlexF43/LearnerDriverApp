@@ -12,6 +12,7 @@ struct LearnerDriverApp: App {
     @StateObject private var drivesContainer = DrivesContainer()
     @StateObject private var personalContainer = PersonalContainer()
     @StateObject private var supervisorsContainer = SupervisorsContainer()
+    @StateObject private var vehiclesContainer = VehiclesContainer()
     
     var body: some Scene {
         WindowGroup {
@@ -19,6 +20,7 @@ struct LearnerDriverApp: App {
                 .environmentObject(drivesContainer)
                 .environmentObject(personalContainer)
                 .environmentObject(supervisorsContainer)
+                .environmentObject(vehiclesContainer)
         }
     }
 }

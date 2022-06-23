@@ -92,6 +92,11 @@ struct Submission: View {
         }
         
         var result = Int(hoursDriven)
+        
+        if personalContainer.personal.sdc == true {
+            result = result + 20
+        }
+        
         if result >= 120 {
             result = 120
         }

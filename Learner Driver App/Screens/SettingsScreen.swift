@@ -44,7 +44,7 @@ struct SettingsScreen: View {
                 
                 Section(header: Text("Management")) {
                     NavigationLink(destination: Submission()) {
-                        Section(header: Text("Submission")) {     // completion percentatage at end of screen next to <
+                        Section(header: Text("Submission Requirments")) {     // completion percentatage at end of screen next to <
                             // on this page have like 20/20 night, 120/120 normal hpt - completed
     //                        Text("Submission Completion")
                         }
@@ -52,6 +52,13 @@ struct SettingsScreen: View {
                     
                     NavigationLink(destination: SupervisorsView()) {
                         Section(header: Text("Supervisors")) {     // completion percentatage at end of screen next to <
+                            // on this page have like 20/20 night, 120/120 normal hpt - completed
+    //                        Text("Submission Completion")
+                        }
+                    }
+                    
+                    NavigationLink(destination: VehiclesView()) {
+                        Section(header: Text("Vehicles")) {     // completion percentatage at end of screen next to <
                             // on this page have like 20/20 night, 120/120 normal hpt - completed
     //                        Text("Submission Completion")
                         }
@@ -76,7 +83,6 @@ struct SettingsScreen: View {
                 
                 Section(header: Text("Links")) {
                     Link("Learner restrictions", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/learner-driver-licence")!)
-                    Link("Hazard perception test", destination: URL(string: "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/driver-licences/driver-licence-tests/hazard-perception-test")!)
                     Link("Booking your Ps test", destination: URL(string: "https://www.myrta.com/wps/portal/extvp/myrta/licence/tbs/tbs-login/!ut/p/z1/jZJfT4MwFMW_ij7wKLdsbkMTY_ZHHZM5MjccfTFlXrEKLWkLTD-9RRMfjE771uac05PfvUBhA1SwmmfMcClYbu8J7d-T6UUUrzsDz-_2JiS4HA9G3iLyyNiDGO4-Jb-cIQG6PyGx_sH9LLqI5uHU9xbBiXUdh-NlMJl3rmYdWAupCtvlFijQZ1aznVtKZXI0LtOQkPaZF2XOt9zM5QPmkBhVYfsscGdijg0kKAyqCRrGc20r072trrvfBeQ26JNgtI4X8bDr-as_BFf9L8HvXGZAUylfhivUJpQZFy3toUi7fgZU4SMqVG6l7BCejCn1qUMc0jSNq1HVfIuu0I2bydpllUN-sj5JbWDzs6PVt6kfoarQUZVafksUD6giplihgUrFban1MoSN_bjUDileS7l1iIVal-eV4me2nUIt8xrVqUk1F9z8P3nF7QxhM7IMDtiBsRQ-dmnvLpTFpb-76dU3Ry_L6VuId77ppX52-A6_4eIx/")!)
                 }
             }

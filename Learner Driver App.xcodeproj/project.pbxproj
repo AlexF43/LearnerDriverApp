@@ -16,6 +16,11 @@
 		0713CCA62816228600983135 /* Personal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713CCA52816228600983135 /* Personal.swift */; };
 		0762171F2862D599005A4CEA /* HazardPerception.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762171E2862D599005A4CEA /* HazardPerception.swift */; };
 		076217212862DAB3005A4CEA /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217202862DAB3005A4CEA /* Submission.swift */; };
+		076217232863E5AF005A4CEA /* VehicleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217222863E5AF005A4CEA /* VehicleData.swift */; };
+		076217252863E63F005A4CEA /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217242863E63F005A4CEA /* Vehicle.swift */; };
+		076217272863E6BA005A4CEA /* VehicleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217262863E6BA005A4CEA /* VehicleRow.swift */; };
+		076217292863EEE1005A4CEA /* VehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076217282863EEE1005A4CEA /* VehicleView.swift */; };
+		0762172B2863EF51005A4CEA /* VehicleAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762172A2863EF51005A4CEA /* VehicleAdd.swift */; };
 		0762E295284439A8003C7469 /* SupervisorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E294284439A8003C7469 /* SupervisorRow.swift */; };
 		0762E297285FE996003C7469 /* SupervisorAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E296285FE996003C7469 /* SupervisorAdd.swift */; };
 		0762E29928614EE4003C7469 /* SaferDriversCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0762E29828614EE4003C7469 /* SaferDriversCourse.swift */; };
@@ -75,6 +80,11 @@
 		0713CCA52816228600983135 /* Personal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal.swift; sourceTree = "<group>"; };
 		0762171E2862D599005A4CEA /* HazardPerception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazardPerception.swift; sourceTree = "<group>"; };
 		076217202862DAB3005A4CEA /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
+		076217222863E5AF005A4CEA /* VehicleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleData.swift; sourceTree = "<group>"; };
+		076217242863E63F005A4CEA /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		076217262863E6BA005A4CEA /* VehicleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRow.swift; sourceTree = "<group>"; };
+		076217282863EEE1005A4CEA /* VehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleView.swift; sourceTree = "<group>"; };
+		0762172A2863EF51005A4CEA /* VehicleAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAdd.swift; sourceTree = "<group>"; };
 		0762E294284439A8003C7469 /* SupervisorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorRow.swift; sourceTree = "<group>"; };
 		0762E296285FE996003C7469 /* SupervisorAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorAdd.swift; sourceTree = "<group>"; };
 		0762E29828614EE4003C7469 /* SaferDriversCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaferDriversCourse.swift; sourceTree = "<group>"; };
@@ -145,11 +155,14 @@
 				0762E29828614EE4003C7469 /* SaferDriversCourse.swift */,
 				0762171E2862D599005A4CEA /* HazardPerception.swift */,
 				0768B003282DD68A0057B215 /* SupervisorsView.swift */,
+				076217282863EEE1005A4CEA /* VehicleView.swift */,
 				0713CC9727D5777D00983135 /* AcheivementsScreen.swift */,
 				0762E294284439A8003C7469 /* SupervisorRow.swift */,
+				076217262863E6BA005A4CEA /* VehicleRow.swift */,
 				07F3648327B094A5002C41E6 /* AddADriveScreen.swift */,
 				0784779A2788245A007C1D47 /* DriveDetailsView.swift */,
 				0762E296285FE996003C7469 /* SupervisorAdd.swift */,
+				0762172A2863EF51005A4CEA /* VehicleAdd.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -159,6 +172,7 @@
 			children = (
 				078477D3278AB965007C1D47 /* DriveData.swift */,
 				0768AFFF282DCA040057B215 /* SupervisorData.swift */,
+				076217222863E5AF005A4CEA /* VehicleData.swift */,
 				0713CCA3281620D000983135 /* PersonalData.swift */,
 				078477CB2789636C007C1D47 /* sampleDrives.json */,
 			);
@@ -249,6 +263,7 @@
 				078477D127896C5E007C1D47 /* Drive.swift */,
 				0768B001282DCC150057B215 /* Supervisor.swift */,
 				0768AFF72828FB130057B215 /* Weather.swift */,
+				076217242863E63F005A4CEA /* Vehicle.swift */,
 				0713CCA52816228600983135 /* Personal.swift */,
 			);
 			path = Model;
@@ -396,9 +411,11 @@
 				0784777527881E5B007C1D47 /* Persistence.swift in Sources */,
 				0713CCA62816228600983135 /* Personal.swift in Sources */,
 				0713CCA22814FCF300983135 /* EditProfile.swift in Sources */,
+				0762172B2863EF51005A4CEA /* VehicleAdd.swift in Sources */,
 				07C21991279C38F8006A1963 /* AddADriveButton.swift in Sources */,
 				0713CCA4281620D000983135 /* PersonalData.swift in Sources */,
 				0762E297285FE996003C7469 /* SupervisorAdd.swift in Sources */,
+				076217232863E5AF005A4CEA /* VehicleData.swift in Sources */,
 				078477D0278963BE007C1D47 /* DrivesRow.swift in Sources */,
 				0784776E27881E59007C1D47 /* ContentView.swift in Sources */,
 				0762171F2862D599005A4CEA /* HazardPerception.swift in Sources */,
@@ -409,11 +426,14 @@
 				077767D827C30DA6003EB320 /* Delete button.swift in Sources */,
 				078477D227896C5F007C1D47 /* Drive.swift in Sources */,
 				078477D8278D8596007C1D47 /* NavigationBar.swift in Sources */,
+				076217292863EEE1005A4CEA /* VehicleView.swift in Sources */,
 				0713CC9C27FEA18200983135 /* AchievementCirclesView.swift in Sources */,
 				0768B006282DD76B0057B215 /* SupervisorsRow.swift in Sources */,
 				0768AFFC282A07BD0057B215 /* Location.swift in Sources */,
 				0768AFF82828FB130057B215 /* Weather.swift in Sources */,
 				0784776C27881E59007C1D47 /* Learner_Driver_AppApp.swift in Sources */,
+				076217272863E6BA005A4CEA /* VehicleRow.swift in Sources */,
+				076217252863E63F005A4CEA /* Vehicle.swift in Sources */,
 				076217212862DAB3005A4CEA /* Submission.swift in Sources */,
 				0768B004282DD68A0057B215 /* SupervisorsView.swift in Sources */,
 				0768B002282DCC150057B215 /* Supervisor.swift in Sources */,
