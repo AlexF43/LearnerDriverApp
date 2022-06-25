@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct Submission: View {
     @EnvironmentObject var personalContainer: PersonalContainer
     @EnvironmentObject var drivesContainer: DrivesContainer
+    let currentDate = Date()
+//    let delta = currentDate.timeIntervalSince(personalContainer.personal.DOBDate)
     
     var body: some View {
         Form {
             Section(header: Text("Requirements")) {
+                
+                HStack {
+                    Text("Over 17 years of age:")
+                    Spacer()
+                    Text("\(oldEnough())")
+                }
                 
                 HStack {
                     Text("Total hours:")
@@ -58,7 +67,7 @@ struct Submission: View {
                         HStack(alignment: .center) {
                 Spacer()
                 
-                if personalContainer.personal.hpt == true && calculateTotalHours(drives: drivesContainer.drives) == 120 {
+                if personalContainer.personal.hpt == true && calculateTotalHours(drives: drivesContainer.drives) == 120 && calculateNightHours(drives: drivesContainer.drives) == 20 && oldEnough() == "Over 17" {
                     Text("Completed")
                         .fontWeight(.semibold)
                         .font(.title3)
@@ -127,6 +136,22 @@ struct Submission: View {
             result = 0
         }
         
+        return result;
+    }
+    
+    func oldEnough() -> String {
+        let currentDate = Date()
+        let monthsSince = Calendar.current.dateComponents([.month], from: personalContainer.personal.DOBDate, to: currentDate)
+        let intMonthsSince = monthsSince.month ?? 0
+        print(intMonthsSince)
+        
+        var result: String
+        if intMonthsSince >= 204 {
+            result = "Over 17"
+        } else {
+            let monthsLeft = 204 - intMonthsSince
+            result = "\(monthsLeft) months to go!"
+        }
         return result;
     }
 }

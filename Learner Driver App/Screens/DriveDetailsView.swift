@@ -39,7 +39,7 @@ struct DriveDetailsView: View {
                 
                 HStack (spacing: 0) {
                     Text("Date")
-                    DatePicker("", selection: $drivesContainer.currentDrive.driveDate, displayedComponents: .date)
+                    DatePicker("", selection: $drivesContainer.currentDrive.driveStartDate, displayedComponents: .date)
 //                        .labelsHidden()
                         .multilineTextAlignment(.trailing)
 //                        .labelsHidden()
@@ -90,19 +90,6 @@ struct DriveDetailsView: View {
                 }
 
                 
-                HStack (spacing: 0) {
-                    Text("Start Time")
-                    TextField("Start Time", text: $drivesContainer.currentDrive.startTime)
-                        .disabled(isEditing)
-                        .multilineTextAlignment(.trailing)
-                }
-                
-                HStack (spacing: 0) {
-                    Text("End Time")
-                    TextField("End Time", text: $drivesContainer.currentDrive.endTime)
-                        .disabled(isEditing)
-                        .multilineTextAlignment(.trailing)
-                }
                 
                 Button("Save", action: attemptToSaveDrive)
                     .foregroundColor(Color.white)
@@ -143,7 +130,7 @@ struct DriveDetailsView: View {
     }
 
     fileprivate func isAllDataFilledIn() -> Bool {
-        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || drivesContainer.currentDrive.startTime == "" || drivesContainer.currentDrive.endTime == ""
+        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == ""
     }
 
     func attemptToSaveDrive() -> Void {

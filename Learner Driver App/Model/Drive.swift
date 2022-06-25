@@ -27,11 +27,10 @@ struct Drive: Hashable, Codable, Identifiable {
     
     init() {
         id = UUID().uuidString
-        dateStr = ""
+        dateStartStr = ""
+        dateEndStr = ""
         vehicle = ""
         supervisor = ""
-        startTime = ""
-        endTime = ""
         startOdometer = 0
         endOdometer = 0
 //        startOdometerStr = ""
@@ -43,12 +42,11 @@ struct Drive: Hashable, Codable, Identifiable {
         Date = ""
     }
     
-    var dateStr: String // date String for storage in the JSON.
+    var dateStartStr: String
+    var dateEndStr: String// date String for storage in the JSON.
     var id: String
     var vehicle: String
     var supervisor: String
-    var startTime: String
-    var endTime: String
     var startOdometer: Int
     var endOdometer: Int
 //    var startOdometerStr: String
@@ -64,28 +62,44 @@ struct Drive: Hashable, Codable, Identifiable {
         endOdometer - startOdometer
     }
     
-    // this function allows us to access dateStr as a Date object
+    // this function allows us to access dateStartStr as a Date object
     // so it will work with things like date pickers
-    var driveDate: Date {
+    var driveStartDate: Date {
         get {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            if let theDate = dateFormatter.date(from: dateStr) {
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            if let theDate = dateFormatter.date(from: dateStartStr) {
                 return theDate
             } 
             return Foundation.Date()
         } set(newDate) {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateStr = dateFormatter.string(from: newDate)
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            dateStartStr = dateFormatter.string(from: newDate)
         }
     }
     
+    var driveEndDate: Date {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            if let theDate = dateFormatter.date(from: dateEndStr) {
+                return theDate
+            }
+            return Foundation.Date()
+        } set(newDate) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateEndStr = dateFormatter.string(from: newDate)
+        }
+    }
+    
+    
     // formatted date for display to the user
-    var formattedDate: String {
+    var formattedStartDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
-        return dateFormatter.string(from: driveDate)
+        return dateFormatter.string(from: driveStartDate)
     
     }
     

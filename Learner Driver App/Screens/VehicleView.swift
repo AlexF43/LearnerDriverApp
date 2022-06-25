@@ -44,7 +44,7 @@ struct VehiclesView: View {
             }
         }
         
-        .navigationTitle("vehicles")
+        .navigationTitle("Vehicles")
         .toolbar {
             EditButton()
                 

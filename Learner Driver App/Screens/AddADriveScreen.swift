@@ -14,6 +14,7 @@ struct AddADriveScreen: View {
     
     @EnvironmentObject var drivesContainer: DrivesContainer
     @EnvironmentObject var supervisorsContainer: SupervisorsContainer
+    @EnvironmentObject var vehiclesContainer: VehiclesContainer
     //    drivesContainer.currentDrive = Drive()
     
     @State private var showAlert = false
@@ -41,12 +42,12 @@ struct AddADriveScreen: View {
     var body: some View {
         
         Form{
-            Section {
+            Section(header: Text("General Information")) {
                 
-                HStack (spacing: 0) {
-                    Text("Vehicle")
-                    TextField("Vehicle", text: $drivesContainer.currentDrive.vehicle)
-                        .multilineTextAlignment(.trailing)
+                Picker("Vehicle", selection: $drivesContainer.currentDrive.vehicle) {
+                    ForEach(vehiclesContainer.vehicles, id: \.id) { vehicle in
+                        Text(vehicle.vehicleName).tag(vehicle.id)
+                    }
                 }
                 
                 Picker("Supervisor", selection: $drivesContainer.currentDrive.supervisor) {
@@ -56,15 +57,39 @@ struct AddADriveScreen: View {
                 }
                 
                 HStack (spacing: 0) {
-                    Text("Date")
-                    DatePicker("", selection: $drivesContainer.currentDrive.driveDate, displayedComponents: .date)
+                    Text("Weather")
+                    Spacer()
+                    Text(weather.current?.weather.count ?? 0 > 0 ? (weather.current?.weather[0].main ?? "Retreiveing Weather") : "Retreiveing Weather")
+                        .multilineTextAlignment(.trailing)
+                }
+            }
+            
+            Section(header: Text("Time and Place")) {
+                
+                HStack (spacing: 0) {
+                    Text("Start Time")
+                    DatePicker("", selection: $drivesContainer.currentDrive.driveStartDate)
                     //                        .labelsHidden()
                         .multilineTextAlignment(.trailing)
                     //                        .labelsHidden()
                 }
                 
                 HStack (spacing: 0) {
-                    Text(weather.current?.weather.count ?? 0 > 0 ? (weather.current?.weather[0].main ?? "Retreiveing Weather") : "Retreiveing Weather")
+                    Text("End Time")
+                    Spacer()
+                    DatePicker("", selection: $drivesContainer.currentDrive.driveEndDate)
+                    //                        .labelsHidden()
+                        .multilineTextAlignment(.trailing)
+//                        .padding(0)
+                    //                        .labelsHidden()
+                }
+
+                
+
+                
+                HStack (spacing: 0) {
+                    Text("Start Suburb")
+                    TextField("End Suburb", text: $drivesContainer.currentDrive.startLocation)
                         .multilineTextAlignment(.trailing)
                 }
                 
@@ -73,7 +98,9 @@ struct AddADriveScreen: View {
                     TextField("End Suburb", text: $drivesContainer.currentDrive.endLocation)
                         .multilineTextAlignment(.trailing)
                 }
-                
+            }
+            
+            Section(header: Text("Odometer")) {
                 
                 HStack (spacing: 0) {
                     Text("Start Odometer")
@@ -103,19 +130,6 @@ struct AddADriveScreen: View {
                 }
                 
                 
-                HStack (spacing: 0) {
-                    Text("Start Time")
-                    TextField("Start Time", text: $drivesContainer.currentDrive.startTime)
-                        .multilineTextAlignment(.trailing)
-                }
-                
-                HStack (spacing: 0) {
-                    Text("End Time")
-                    TextField("End Time", text: $drivesContainer.currentDrive.endTime)
-                        .multilineTextAlignment(.trailing)
-                }
-                
-                
                 Button("Save", action: attemptToSaveDrive)
                     .foregroundColor(Color.white)
                     .frame(width:70, height:30, alignment: .center)
@@ -142,7 +156,7 @@ struct AddADriveScreen: View {
     //perform: makeNewDriveIfNecessary
     
     fileprivate func isAllDataFilledIn() -> Bool {
-        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || drivesContainer.currentDrive.startTime == "" || drivesContainer.currentDrive.endTime == ""
+        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == ""
     }
     
     func loadData() {
@@ -155,6 +169,7 @@ struct AddADriveScreen: View {
     }
     
     func attemptToSaveDrive() -> Void {
+        print("date \(drivesContainer.currentDrive.driveStartDate)")
         if isAllDataFilledIn() {
             showAlert = true
             print("equals nil ")

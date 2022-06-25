@@ -34,6 +34,7 @@ class PersonalContainer : ObservableObject {
         print(data)
         do {
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode(Personal.self, from: data)
         } catch {
             fatalError("Couldn't parse \(filePersonal) as \(Personal.self):\n\(error)")

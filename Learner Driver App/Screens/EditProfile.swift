@@ -13,23 +13,45 @@ struct EditProfile: View {
     
 
     var body: some View {
-        VStack{
-            TextField(personalContainer.personal.usersFirstName, text: $personalContainer.personal.usersFirstName)
-            Divider()
+        Form {
+            Section(header: Text("Personal Infomation")) {
+                HStack (spacing: 0) {
+                    Text("First Name")
+                    TextField(personalContainer.personal.usersFirstName, text: $personalContainer.personal.usersFirstName)
+                        .multilineTextAlignment(.trailing)
+                }
+                
+                HStack (spacing: 0) {
+                    Text("Last Name")
+                    TextField(personalContainer.personal.usersLastName, text: $personalContainer.personal.usersLastName)
+                        .multilineTextAlignment(.trailing)
+                }
+            }
             
-            TextField(personalContainer.personal.usersLastName, text: $personalContainer.personal.usersLastName)
-            Divider()
+            Section(header: Text("Lisence info")) {
+                HStack (spacing: 0) {
+                    Text("Date")
+                    DatePicker("", selection: $personalContainer.personal.DOBDate, displayedComponents: .date)
+                    //                        .labelsHidden()
+                        .multilineTextAlignment(.trailing)
+                    //                        .labelsHidden()
+                }
+                
+            }
+                
             
+           
             TextField("\(personalContainer.personal.licenseInfo)", value: $personalContainer.personal.licenseInfo, formatter: NumberFormatter())
-            Divider()
             
             Button("Save", action: savePersonalInfo)
                 .foregroundColor(Color.white)
                 .frame(width:70, height:30)
                 .background(Color.blue)
                 .border(Color.black, width:2)
+            
                 
             }
+        .navigationTitle("Edit Infomation")
             
         }
 //    }
