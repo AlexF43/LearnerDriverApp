@@ -19,6 +19,7 @@ struct AddADriveScreen: View {
     
     @State private var showAlert = false
     @State var isNewDrive: Bool
+    
     @State private var startOdometerStr: String = ""
     @State private var endOdometerStr: String = ""
     //    let locationManager = LocationManager()
@@ -145,7 +146,8 @@ struct AddADriveScreen: View {
         } .task {
             if let results = await weatherProvider.getWeather(lat: userLatitude, lon: userLongitude, options: OWOptions(excludeMode: [], units: .metric, lang: "en")) {
                 weather = results
-                makeNewDriveIfNecessary()
+                weatherToString()
+//                makeNewDriveIfNecessary()
             }
         }
         .navigationTitle("Add a drive")
@@ -154,6 +156,10 @@ struct AddADriveScreen: View {
     //        }
     
     //perform: makeNewDriveIfNecessary
+    
+    func weatherToString() -> Void {
+        
+    }
     
     fileprivate func isAllDataFilledIn() -> Bool {
         return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == ""
@@ -179,21 +185,22 @@ struct AddADriveScreen: View {
         }
     }
     
-    func makeNewDriveIfNecessary() {
-        if isNewDrive {
-            drivesContainer.currentDrive = Drive()
-            isNewDrive = false
-        }
-    }
+//    func makeNewDriveIfNecessary() {
+//        if isNewDrive {
+////            drivesContainer.currentDrive = Drive()
+//        }
+//    }
     
     func saveDrive() -> Void {
+
         drivesContainer.currentDrive.startOdometer = Int(startOdometerStr) ?? 0
         drivesContainer.currentDrive.endOdometer = Int(endOdometerStr) ?? 0
-        if isNewDrive {
+        drivesContainer.currentDrive.driveWeather = weather.current?.weather.count ?? 0 > 0 ? (weather.current?.weather[0].main ?? "Retreiveing Weather") : "Retreiveing Weather"
+//        if isNewDrive {
             drivesContainer.addDrive(drive: drivesContainer.currentDrive)
-        } else {
-            drivesContainer.saveCurrentDrive()
-        }
+//        } else {
+//            drivesContainer.saveCurrentDrive()
+//        }
     }
     
 }

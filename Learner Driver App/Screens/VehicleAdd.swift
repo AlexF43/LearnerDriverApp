@@ -46,7 +46,7 @@ struct VehicleAdd: View {
                 EmptyView()
             }
         } .task {
-            vehiclesContainer.currentvehicle = vehicle()
+            vehiclesContainer.currentvehicle = Vehicle()
         }
     }
 }

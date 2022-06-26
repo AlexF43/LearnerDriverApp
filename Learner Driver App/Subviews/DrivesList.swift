@@ -51,7 +51,9 @@ struct DrivesList: View {
                                 
                                 NavigationLink(destination: AddADriveScreen(isNewDrive: true)) {
                                     AddADriveButton()
-                                }
+                                }.simultaneousGesture(TapGesture().onEnded{
+                                    drivesContainer.currentDrive = Drive()
+                                })
                                 .padding()
                                 
 //                                Button (action: {

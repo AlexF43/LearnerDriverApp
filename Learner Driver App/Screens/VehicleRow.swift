@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VehicleRow: View {
     @Environment(\.managedObjectContext) private var viewContext
-    var vehicle: vehicle
+    var vehicle: Vehicle
     var body: some View {
         Text(vehicle.vehicleName)
     }

@@ -17,7 +17,7 @@ struct AchievementCirclesView: View {
     var AchievedNight: Bool
     
     var body: some View {
-        VStack (spacing: 5){
+        VStack (spacing: 5) {
             
             Rectangle()
                 .stroke(Color.black, lineWidth: 0.5)

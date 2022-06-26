@@ -14,7 +14,7 @@ struct NavigationBar: View {
         TabView {
             AcheivementsScreen()
                 .tabItem {
-                    Image("Acheivements icon")
+                    Image("Ac")
                         .resizable()
                         .frame(width: 50, height: 50)
                 }

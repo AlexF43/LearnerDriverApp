@@ -94,6 +94,7 @@
 		0768B001282DCC150057B215 /* Supervisor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supervisor.swift; sourceTree = "<group>"; };
 		0768B003282DD68A0057B215 /* SupervisorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorsView.swift; sourceTree = "<group>"; };
 		0768B005282DD76B0057B215 /* SupervisorsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupervisorsRow.swift; sourceTree = "<group>"; };
+		076BF59D2867F166007D541D /* Learner-Driver-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Learner-Driver-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077767D727C30DA6003EB320 /* Delete button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Delete button.swift"; sourceTree = "<group>"; };
 		0784776827881E59007C1D47 /* Learner Driver App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learner Driver App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learner_Driver_AppApp.swift; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		0784776A27881E59007C1D47 /* Learner Driver App */ = {
 			isa = PBXGroup;
 			children = (
+				076BF59D2867F166007D541D /* Learner-Driver-App-Info.plist */,
 				0784776B27881E59007C1D47 /* Learner_Driver_AppApp.swift */,
 				077767D527B49141003EB320 /* Screens */,
 				078477C927895DCC007C1D47 /* Subviews */,
@@ -606,6 +608,7 @@
 				DEVELOPMENT_TEAM = MS33HPMRRR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Learner-Driver-App-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We want to get your accurate weather data";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to get your accurate weather data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -613,6 +616,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +641,7 @@
 				DEVELOPMENT_TEAM = MS33HPMRRR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Learner-Driver-App-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We want to get your accurate weather data";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to get your accurate weather data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -644,6 +649,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

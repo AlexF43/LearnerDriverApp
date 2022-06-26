@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DrivesRow: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var vehiclesContainer: VehiclesContainer
+    
     var drive: Drive
     
     var body: some View {
@@ -32,7 +34,7 @@ struct DrivesRow: View {
                 }
                 
                 VStack {
-                    Text(drive.vehicle)
+                    Text( vehiclesContainer.getVehicle(byId: drive.vehicle)?.vehicleName ?? "Unknown vehicle")
                         .font(.title2)
                     
                     Text("Drive on " + drive.formattedStartDate)

@@ -40,8 +40,10 @@ struct Drive: Hashable, Codable, Identifiable {
         driveNotes = ""
         isDayTime = false
         Date = ""
+        driveWeather = ""
     }
     
+    var driveWeather: String
     var dateStartStr: String
     var dateEndStr: String// date String for storage in the JSON.
     var id: String
@@ -82,14 +84,14 @@ struct Drive: Hashable, Codable, Identifiable {
     var driveEndDate: Date {
         get {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             if let theDate = dateFormatter.date(from: dateEndStr) {
                 return theDate
             }
             return Foundation.Date()
         } set(newDate) {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             dateEndStr = dateFormatter.string(from: newDate)
         }
     }

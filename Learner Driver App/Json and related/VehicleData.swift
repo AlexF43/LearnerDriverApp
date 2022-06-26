@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 
 class VehiclesContainer : ObservableObject {
-    @Published var vehicles: [vehicle]
-    @Published var currentvehicle: vehicle
+    @Published var vehicles: [Vehicle]
+    @Published var currentvehicle: Vehicle
     
     let fileName = "samplevehicles.json"
     
     init() {
-        vehicles = [vehicle]()
-        currentvehicle = vehicle()
+        vehicles = [Vehicle]()
+        currentvehicle = Vehicle()
         vehicles = load(fileName)
     }
     
-    func load(_ filename: String) -> [vehicle] {
+    func load(_ filename: String) -> [Vehicle] {
         let data: Data
         
         let file = getDocumentsDirectory().appendingPathComponent(fileName)
@@ -31,19 +31,23 @@ class VehiclesContainer : ObservableObject {
             data = try Data(contentsOf: file)
         } catch {
             // file does not exist. Return a new empty list
-            return [vehicle]()
+            return [Vehicle]()
         }
         
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
-            return try decoder.decode([vehicle].self, from: data)
+            return try decoder.decode([Vehicle].self, from: data)
         } catch {
-            fatalError("Couldn't parse \(filename) as \([vehicle].self):\n\(error)")
+            fatalError("Couldn't parse \(filename) as \([Vehicle].self):\n\(error)")
         }
     }
     
-    func addvehicle(vehicle: vehicle) {
+    func getVehicle(byId id: String) -> Vehicle? {
+        return vehicles.first(where: { $0.id == id })
+    }
+    
+    func addvehicle(vehicle: Vehicle) {
         vehicles.append(vehicle)
         savevehicle()
         vehicles = load(fileName)

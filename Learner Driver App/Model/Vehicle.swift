@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct vehicle: Hashable, Codable, Identifiable {
+struct Vehicle: Hashable, Codable, Identifiable {
     
     init() {
         id = UUID().uuidString

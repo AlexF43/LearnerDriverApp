@@ -22,17 +22,19 @@ struct ContentView: View {
             
             AcheivementsScreen()
               .tabItem {
-                  Image(systemName: "questionmark")
+                  Image(systemName: "sparkles")
                   Text("Achievements")
               }
               .tag(1)
             DrivesList()
+            
               .tabItem {
                   Image(systemName: "car.fill")
                   Text("Home")
               }
               .tag(2)
             SettingsScreen()
+            
                 .tabItem {
                   Image(systemName: "gear")
                   Text("Settings")
