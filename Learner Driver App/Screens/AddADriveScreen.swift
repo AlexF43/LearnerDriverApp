@@ -84,6 +84,11 @@ struct AddADriveScreen: View {
 //                        .padding(0)
                     //                        .labelsHidden()
                 }
+                
+                Picker("Time of day", selection: $drivesContainer.currentDrive.isDayTime) {
+                    Text("Day").tag(true)
+                    Text("Night").tag(false)
+                }.pickerStyle(SegmentedPickerStyle())
 
                 
 
