@@ -132,22 +132,54 @@ struct AddADriveScreen: View {
                                 self.endOdometerStr = filtered
                             }
                         }
-                    
                 }
-                
-                
-                Button("Save", action: attemptToSaveDrive)
-                    .foregroundColor(Color.white)
-                    .frame(width:70, height:30, alignment: .center)
-                    .background(Color.blue)
-                    .border(Color.black, width:2)
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Unable to save drive"),
-                            message: Text("Please enter the required infomation into every field")
-                        )}
-                //            }.onAppear(perform: makeNewDriveIfNecessary, perform: requestAlwaysAuthorization())
             }
+
+                    Section(footer:
+                                HStack(alignment: .center) {
+                        Spacer()
+
+                        NavigationLink {
+                                DrivesList()
+                        } label: {
+                                HStack {
+                                    Image(systemName: "plus")
+                                        .font(.body)
+                                    Text("Save")
+                                        .fontWeight(.semibold)
+                                        .font(.title3)
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.blue)
+                                .cornerRadius(30)
+                                .alert(isPresented: $showAlert) {
+                                    Alert(
+                                        title: Text("Unable to save drive"),
+                                        message: Text("Please enter the required infomation into every field")
+                                    )}
+                        }.simultaneousGesture(TapGesture().onEnded{
+                            attemptToSaveDrive()
+                        })
+                        Spacer()
+                    }) {
+                        EmptyView()
+                    }
+        
+                
+//
+//
+//                Button("Save", action: attemptToSaveDrive)
+//                    .foregroundColor(Color.white)
+//                    .frame(width:70, height:30, alignment: .center)
+//                    .background(Color.blue)
+//                    .border(Color.black, width:2)
+//                    .alert(isPresented: $showAlert) {
+//                        Alert(
+//                            title: Text("Unable to save drive"),
+//                            message: Text("Please enter the required infomation into every field")
+//                        )}
+                //            }.onAppear(perform: makeNewDriveIfNecessary, perform: requestAlwaysAuthorization())
         } .task {
             if let results = await weatherProvider.getWeather(lat: userLatitude, lon: userLongitude, options: OWOptions(excludeMode: [], units: .metric, lang: "en")) {
                 weather = results

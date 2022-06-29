@@ -21,14 +21,18 @@ struct DrivesRow: View {
                 .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.gray.opacity(0.5), lineWidth: 3))
             HStack {
                 if (drive.isDayTime == true) {
-                    Image("Daytime")
-                    .resizable()
+                    Image(systemName: "sun.max.fill")
+                        .resizable()
+                        .foregroundColor(.yellow)
+                        .opacity(0.5)
                     .frame(width: 50, height: 50)
                     .padding()
                 }
                 else {
-                    Image("Nighttime")
-                    .resizable()
+                    Image(systemName: "moon.fill")
+                        .resizable()
+                        .foregroundColor(.yellow)
+                        .opacity(0.5)
                     .frame(width: 50, height: 50)
                     .padding()
                 }

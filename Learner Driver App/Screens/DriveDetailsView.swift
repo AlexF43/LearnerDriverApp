@@ -69,7 +69,10 @@ struct DriveDetailsView: View {
                     //                        .labelsHidden()
                 }
 
-                
+                Picker("Time of day", selection: $drivesContainer.currentDrive.isDayTime) {
+                    Text("Day").tag(true)
+                    Text("Night").tag(false)
+                }.pickerStyle(SegmentedPickerStyle())
 
                 
                 HStack (spacing: 0) {
@@ -134,7 +137,7 @@ struct DriveDetailsView: View {
         }
         
         .onAppear(perform: initialiseStrings)
-        .navigationTitle("Drive on \(drivesContainer.currentDrive.Date)")
+        .navigationTitle("Drive on \(drivesContainer.currentDrive.formattedStartDate)")
         .toolbar {
             Button(editingState, action: editPressed)
 //            NavigationLink(destination: AddADriveScreen(isNewDrive: false)) {

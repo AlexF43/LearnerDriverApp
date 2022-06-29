@@ -95,48 +95,56 @@ struct Submission: View {
     }
     
     public func calculateTotalHours(drives: [Drive]) -> Int {
-        var hoursDriven = 0.0
+        
+        var currentDriveMins: DateComponents
+        var runningTotalMinuites = 0
+        
         for drive in drives {
-            hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
-        }
-        
-        var result = Int(hoursDriven)
-        
-        if personalContainer.personal.sdc == true {
-            result = result + 20
-        }
-        
-        if result >= 120 {
-            result = 120
-        }
-        
-        if result <= 0 {
-            result = 0
-        }
-        
-        
-        return result;
-    }
-    
-    func calculateNightHours(drives: [Drive]) -> Int {
-        var hoursDriven = 0.0
-        for drive in drives {
-            if drive.isDayTime == false {
-                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+            
+            currentDriveMins = Calendar.current.dateComponents([.minute], from: drive.driveStartDate, to: drive.driveEndDate)
+            let currentDriveMinsInt = currentDriveMins.minute ?? 0
+            if currentDriveMinsInt > 0 {
+                runningTotalMinuites += currentDriveMinsInt
             }
         }
         
-        var result = Int(hoursDriven)
+        var totalHours = runningTotalMinuites / 60
         
-        if result >= 20 {
-            result = 20
+        if personalContainer.personal.sdc == true {
+            totalHours = totalHours + 20
         }
         
-        if result <= 0 {
-            result = 0
+        if totalHours > 120 {
+            totalHours = 120
         }
         
+            let result = totalHours
+            return result;
+    }
+    
+    func calculateNightHours(drives: [Drive]) -> Int {
+        
+        var currentDriveMins: DateComponents
+        var runningTotalMinuites = 0
+        
+        for drive in drives {
+            if drive.isDayTime == false {
+                currentDriveMins = Calendar.current.dateComponents([.minute], from: drive.driveStartDate, to: drive.driveEndDate)
+                let currentDriveMinsInt = currentDriveMins.minute ?? 0
+                if currentDriveMinsInt > 0 {
+                    runningTotalMinuites += currentDriveMinsInt
+                }
+            }
+        }
+        
+        var totalHours = runningTotalMinuites / 60
+        
+        if totalHours > 20 {
+            totalHours = 20
+        }
+        let result = totalHours
         return result;
+
     }
     
     func oldEnough() -> String {

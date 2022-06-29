@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DrivesList: View {
     @State var navigated = false
-    
+    @EnvironmentObject var personalContainer: PersonalContainer
     @EnvironmentObject var drivesContainer: DrivesContainer
     
     @State private var isPresenting = false
@@ -131,7 +131,7 @@ struct DrivesList: View {
                     Divider()
                 }
             }
-        }
+        }.navigationBarHidden(true)
 //        NavigationBar()
 //            .frame(height: 40)
     }
@@ -141,40 +141,83 @@ struct DrivesList: View {
     }
     
     func calculateTotalProgres(drives: [Drive]) -> Float {
-        var hoursDriven = 0.0
+        var currentDriveMins: DateComponents
+        var runningTotalMinuites = 0
+        
         for drive in drives {
-            hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+                currentDriveMins = Calendar.current.dateComponents([.minute], from: drive.driveStartDate, to: drive.driveEndDate)
+                let currentDriveMinsInt = currentDriveMins.minute ?? 0
+                if currentDriveMinsInt > 0 {
+                    runningTotalMinuites += currentDriveMinsInt
+                }
         }
         
-        let result = Float(hoursDriven / 120)
-        return result;
+        var totalHours = Double(runningTotalMinuites / 60)
+        if personalContainer.personal.sdc == true {
+            totalHours = totalHours + 20
+        }
+        
+        if totalHours > 120 {
+            totalHours = 120
+        }
+        
+        let result = totalHours / 120.0
+        return Float(result);
     }
+
     
     func calculateDayProgres(drives: [Drive]) -> Float {
-        var hoursDriven = 0.0
+        var currentDriveMins: DateComponents
+        var runningTotalMinuites = 0
+        
         for drive in drives {
-            if drive.isDayTime {
-                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+            if drive.isDayTime == true {
+                currentDriveMins = Calendar.current.dateComponents([.minute], from: drive.driveStartDate, to: drive.driveEndDate)
+                let currentDriveMinsInt = currentDriveMins.minute ?? 0
+                if currentDriveMinsInt > 0 {
+                    runningTotalMinuites += currentDriveMinsInt
+                }
             }
         }
         
-        let result = Float(hoursDriven / 100)
-        return result;
+        var totalHours = Double(runningTotalMinuites / 60)
+        
+        if personalContainer.personal.sdc == true {
+            totalHours = totalHours + 20
+        }
+        
+        if totalHours > 100 {
+            totalHours = 100
+        }
+        
+        let result = totalHours / 120.0
+        return Float(result);
     }
     
     func calculateNightProgres(drives: [Drive]) -> Float {
-        var hoursDriven = 0.0
+        var currentDriveMins: DateComponents
+        var runningTotalMinuites = 0
+        
         for drive in drives {
             if drive.isDayTime == false {
-                hoursDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+                currentDriveMins = Calendar.current.dateComponents([.minute], from: drive.driveStartDate, to: drive.driveEndDate)
+                let currentDriveMinsInt = currentDriveMins.minute ?? 0
+                if currentDriveMinsInt > 0 {
+                    runningTotalMinuites += currentDriveMinsInt
+                }
             }
         }
         
-        var result = Float(hoursDriven / 20)
-        if result > 1 {
-            result = 1
+        var totalHours = Double(runningTotalMinuites / 60)
+        
+        
+        if totalHours > 20 {
+            totalHours = 20
         }
-        return result;
+        
+        let result = totalHours / 20.0
+        return Float(result);
+        
     }
 }
 
