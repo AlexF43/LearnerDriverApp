@@ -53,6 +53,9 @@ struct DrivesList: View {
                                     AddADriveButton()
                                 }.simultaneousGesture(TapGesture().onEnded{
                                     drivesContainer.currentDrive = Drive()
+                                    drivesContainer.currentDrive.driveStartDate = Date()
+                                    drivesContainer.currentDrive.driveEndDate = Date()
+                                    
                                 })
                                 .padding()
                                 

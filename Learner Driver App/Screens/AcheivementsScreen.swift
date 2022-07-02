@@ -33,7 +33,8 @@ struct AcheivementsScreen: View {
                         totalHours: calculateTotalHours(drives: drivesContainer.drives),
                         dayHours: calculateDayHours(drives: drivesContainer.drives),
                         nightHours: calculateNightHours(drives: drivesContainer.drives),
-                        AchievedTotal: false, AchievedDay: false, AchievedNight: true)
+                        AchievedTotal: false, AchievedDay: false, AchievedNight: true,
+                        distanceDriven: calculateTotalKM(drives: drivesContainer.drives))
                     
 
                 .padding()
@@ -213,6 +214,17 @@ struct AcheivementsScreen: View {
             totalColor = "yellow"
         }
         return totalColor;
+    }
+    
+    func calculateTotalKM(drives: [Drive]) -> Int {
+         var DistanceDriven = 0.0
+         for drive in drives {
+             DistanceDriven += Double(drive.endOdometer) - Double(drive.startOdometer)
+        }
+        
+        let result = Int(DistanceDriven)
+        print("ben\(result)")
+        return result;
     }
 
 

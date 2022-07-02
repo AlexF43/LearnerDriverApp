@@ -15,6 +15,8 @@ struct AchievementCirclesView: View {
     var AchievedTotal: Bool
     var AchievedDay: Bool
     var AchievedNight: Bool
+    var distanceDriven: Int
+
     
     var body: some View {
         VStack (spacing: 5) {
@@ -141,7 +143,7 @@ struct AchievementCirclesView: View {
                     ZStack{
                         Circle()
                             .stroke(Color.gray.opacity(0.3), lineWidth: 3)
-                            .background(Circle().fill(Color.gray.opacity(0.3)))
+                            .background(Circle().fill(distanceDriven >= 2000 ? Color.yellow.opacity(0.3) : Color.gray.opacity(0.3)))
                         
                             .frame(width:100, height:100)
                         Text("2000")
@@ -162,8 +164,8 @@ struct AchievementCirclesView: View {
     }
 }
 
-struct AchievementCirclesView_Previews: PreviewProvider {
-    static var previews: some View {
-        AchievementCirclesView(totalHours: 4, dayHours: 1, nightHours: 2, AchievedTotal: false, AchievedDay: false, AchievedNight: true)
-    }
-}
+//struct AchievementCirclesView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AchievementCirclesView(totalHours: 4, dayHours: 1, nightHours: 2, AchievedTotal: false, AchievedDay: false, AchievedNight: true)
+//    }
+//}

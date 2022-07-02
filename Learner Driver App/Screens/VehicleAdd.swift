@@ -9,14 +9,16 @@ import SwiftUI
 
 struct VehicleAdd: View {
     @EnvironmentObject var vehiclesContainer: VehiclesContainer
+    @Environment(\.dismiss) var dismiss
+    @State var showAlert = false
     
     var body: some View {
         
         Form{
             Section {
                 HStack (spacing: 0) {
-                    Text("Instructor")
-                    TextField("Instructor", text: $vehiclesContainer.currentvehicle.vehicleName)
+                    Text("Vehicle")
+                    TextField("Vehicle Name", text: $vehiclesContainer.currentvehicle.vehicleName)
                         .multilineTextAlignment(.trailing)
                 }
                 
@@ -26,7 +28,12 @@ struct VehicleAdd: View {
                 Spacer()
                 
                 Button( action: {
-                    vehiclesContainer.addvehicle(vehicle: vehiclesContainer.currentvehicle)
+                    if vehiclesContainer.currentvehicle.vehicleName != "" {
+                        vehiclesContainer.addvehicle(vehicle: vehiclesContainer.currentvehicle)
+                        dismiss()
+                    } else {
+                        showAlert = true
+                    }
                 }) {
                     HStack {
                         Text("Save")
@@ -39,6 +46,11 @@ struct VehicleAdd: View {
                     .foregroundColor(.white)
                     .background(Color.blue)
                     .cornerRadius(30)
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Unable to save vehicle"),
+                            message: Text("Please enter the vehicle name into the field")
+                        )}
                 }
                 Spacer()
                 
@@ -47,7 +59,7 @@ struct VehicleAdd: View {
             }
         } .task {
             vehiclesContainer.currentvehicle = Vehicle()
-        }
+        }.navigationBarTitle("Add a Vehicle")
     }
 }
 

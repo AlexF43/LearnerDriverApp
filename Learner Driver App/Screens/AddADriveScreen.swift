@@ -15,6 +15,7 @@ struct AddADriveScreen: View {
     @EnvironmentObject var drivesContainer: DrivesContainer
     @EnvironmentObject var supervisorsContainer: SupervisorsContainer
     @EnvironmentObject var vehiclesContainer: VehiclesContainer
+    @Environment(\.dismiss) var dismiss
     //    drivesContainer.currentDrive = Drive()
     
     @State private var showAlert = false
@@ -139,9 +140,7 @@ struct AddADriveScreen: View {
                                 HStack(alignment: .center) {
                         Spacer()
 
-                        NavigationLink {
-                                DrivesList()
-                        } label: {
+                        Button(action: attemptToSaveDrive) {
                                 HStack {
                                     Image(systemName: "plus")
                                         .font(.body)
@@ -156,11 +155,9 @@ struct AddADriveScreen: View {
                                 .alert(isPresented: $showAlert) {
                                     Alert(
                                         title: Text("Unable to save drive"),
-                                        message: Text("Please enter the required infomation into every field")
+                                        message: Text("Please check all infomation has been entered and is correct")
                                     )}
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            attemptToSaveDrive()
-                        })
+                        }
                         Spacer()
                     }) {
                         EmptyView()
@@ -199,7 +196,7 @@ struct AddADriveScreen: View {
     }
     
     fileprivate func isAllDataFilledIn() -> Bool {
-        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == ""
+        return drivesContainer.currentDrive.supervisor == "" || drivesContainer.currentDrive.vehicle == "" || drivesContainer.currentDrive.startLocation == "" || drivesContainer.currentDrive.endLocation == "" || endOdometerStr == "" || startOdometerStr == "" || Int(endOdometerStr) ?? 0 < Int(startOdometerStr) ?? 0 || drivesContainer.currentDrive.driveStartDate > drivesContainer.currentDrive.driveEndDate
     }
     
     func loadData() {
@@ -217,7 +214,12 @@ struct AddADriveScreen: View {
             showAlert = true
             print("equals nil ")
         } else {
+            drivesContainer.currentDrive.driveWeather = weather.current?.weather.count ?? 0 > 0 ? (weather.current?.weather[0].main ?? "Retreiveing Weather") : "Retreiveing Weather"
             saveDrive()
+//            drivesContainer.currentDrive = Drive()
+//            endOdometerStr = ""
+//            startOdometerStr = ""
+            dismiss()
             print("does not equal")
         }
     }

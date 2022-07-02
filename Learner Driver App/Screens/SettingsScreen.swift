@@ -73,7 +73,7 @@ struct SettingsScreen: View {
                         }
     //                }
                     
-    //                if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since lisence < 10 months
+    //                if personalContainer.personal.hpt == false {    //  new hpt item in personal and date since license < 10 months
                     NavigationLink(destination: HazardPerception()) {
                         Section(header: Text("Hazard Perception Test")) {
                         }

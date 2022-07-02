@@ -10,6 +10,8 @@ import SwiftUI
 struct EditProfile: View {
     @EnvironmentObject var personalContainer: PersonalContainer
     @State private var licenseNumStr: String = ""
+    @Environment(\.dismiss) var dismiss
+    @State var showAlert = false
     
 
     var body: some View {
@@ -26,9 +28,7 @@ struct EditProfile: View {
                     TextField(personalContainer.personal.usersLastName, text: $personalContainer.personal.usersLastName)
                         .multilineTextAlignment(.trailing)
                 }
-            }
-            
-            Section(header: Text("Lisence info")) {
+                
                 HStack (spacing: 0) {
                     Text("Date")
                     DatePicker("", selection: $personalContainer.personal.DOBDate, displayedComponents: .date)
@@ -36,18 +36,44 @@ struct EditProfile: View {
                         .multilineTextAlignment(.trailing)
                     //                        .labelsHidden()
                 }
-                
+            }
+            
+            Section(header: Text("license info")) {
+                HStack {
+                Text("license Number")
+                TextField("12345678", value: $personalContainer.personal.licenseInfo, formatter: NumberFormatter())
+                    .multilineTextAlignment(.trailing)
+                }
             }
                 
             
-           
-            TextField("\(personalContainer.personal.licenseInfo)", value: $personalContainer.personal.licenseInfo, formatter: NumberFormatter())
-            
-            Button("Save", action: savePersonalInfo)
-                .foregroundColor(Color.white)
-                .frame(width:70, height:30)
-                .background(Color.blue)
-                .border(Color.black, width:2)
+            Section(footer:
+                        HStack(alignment: .center) {
+                Spacer()
+
+                Button(action: savePersonalInfo) {
+                        HStack {
+                            Image(systemName: "plus")
+                                .font(.body)
+                            Text("Save")
+                                .fontWeight(.semibold)
+                                .font(.title3)
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(30)
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Unable to save"),
+                                message: Text("Please check all infomation has been entered")
+                            )}
+                }
+                Spacer()
+            }) {
+                EmptyView()
+            }
+
             
                 
             }
@@ -58,7 +84,12 @@ struct EditProfile: View {
 
     func savePersonalInfo() -> Void {
 //        personalContainer.personal.licenseInfo = Int(licenseNumStr) ?? 0
-        personalContainer.savePersonal()
+        if personalContainer.personal.usersFirstName != "" && personalContainer.personal.usersLastName != "" && personalContainer.personal.licenseInfo != 1 {
+            personalContainer.savePersonal()
+            dismiss()
+        } else  {
+            showAlert = true
+        }
         //take back to setting screen
     }
     

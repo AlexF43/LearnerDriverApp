@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SupervisorAdd: View {
     @EnvironmentObject var supervisorsContainer: SupervisorsContainer
+    @Environment(\.dismiss) var dismiss
+    @State var showAlert = false
     
     var body: some View {
         
@@ -26,7 +28,12 @@ struct SupervisorAdd: View {
                 Spacer()
                 
                 Button( action: {
-                    supervisorsContainer.addSupervisor(supervisor: supervisorsContainer.currentSupervisor)
+                    if supervisorsContainer.currentSupervisor.firstName != "" {
+                        supervisorsContainer.addSupervisor(supervisor: supervisorsContainer.currentSupervisor)
+                        dismiss()
+                    } else {
+                        showAlert = true
+                    }
                 }) {
                     HStack {
                         Text("Save")
@@ -39,6 +46,12 @@ struct SupervisorAdd: View {
                     .foregroundColor(.white)
                     .background(Color.blue)
                     .cornerRadius(30)
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Unable to save supervisor"),
+                            message: Text("Please enter the supervisors name into the field")
+                        )}
+                    
                 }
                 Spacer()
                 
